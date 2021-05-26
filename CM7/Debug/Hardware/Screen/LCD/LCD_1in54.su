@@ -1,0 +1,13 @@
+LCD_1in54.c:27:13:LCD_1IN54_Reset	8	static
+LCD_1in54.c:42:13:LCD_1IN54_SendCommand	16	static
+LCD_1in54.c:55:13:LCD_1IN54_SendData_8Bit	16	static
+LCD_1in54.c:68:13:LCD_1IN54_SendData_16Bit	16	static
+LCD_1in54.c:81:13:LCD_1IN54_InitReg	8	static
+LCD_1in54.c:160:13:LCD_1IN54_SetAttributes	24	static
+LCD_1in54.c:186:6:LCD_1IN54_Init	16	static
+LCD_1in54.c:206:6:LCD_1IN54_SetWindows	24	static
+LCD_1in54.c:229:6:LCD_1IN54_Clear	24	static
+LCD_1in54.c:247:6:LCD_1IN54_Display	24	static
+LCD_1in54.c:260:6:LCD_1IN54_DisplayWindows	32	static
+LCD_1in54.c:284:6:LCD_1IN54_DrawPaint	16	static
+LCD_1in54.c:296:6:LCD_1IN54_SetBackLight	16	static

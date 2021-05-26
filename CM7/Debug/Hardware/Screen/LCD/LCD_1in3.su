@@ -1,0 +1,13 @@
+LCD_1in3.c:27:13:LCD_1IN3_Reset	8	static
+LCD_1in3.c:42:13:LCD_1IN3_SendCommand	16	static
+LCD_1in3.c:55:13:LCD_1IN3_SendData_8Bit	16	static
+LCD_1in3.c:68:13:LCD_1IN3_SendData_16Bit	16	static
+LCD_1in3.c:81:13:LCD_1IN3_InitReg	8	static
+LCD_1in3.c:160:13:LCD_1IN3_SetAttributes	24	static
+LCD_1in3.c:186:6:LCD_1IN3_Init	16	static
+LCD_1in3.c:207:6:LCD_1IN3_SetWindows	24	static
+LCD_1in3.c:230:6:LCD_1IN3_Clear	24	static
+LCD_1in3.c:248:6:LCD_1IN3_Display	24	static
+LCD_1in3.c:261:6:LCD_1IN3_DisplayWindows	32	static
+LCD_1in3.c:285:6:LCD_1IN3_DrawPaint	16	static
+LCD_1in3.c:297:6:LCD_1IN3_SetBackLight	16	static

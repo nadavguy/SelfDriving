@@ -21,6 +21,7 @@
 #include "main.h"
 #include "eth.h"
 #include "i2c.h"
+#include "spi.h"
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
@@ -126,8 +127,9 @@ Error_Handler();
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
+  MX_SPI2_Init();
   /* USER CODE BEGIN 2 */
-
+  ssd1306_TestAll();
   /* USER CODE END 2 */
 
   /* Infinite loop */
