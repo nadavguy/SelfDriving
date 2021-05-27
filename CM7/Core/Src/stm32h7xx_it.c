@@ -213,6 +213,46 @@ void I2C1_EV_IRQHandler(void)
   /* USER CODE END I2C1_EV_IRQn 1 */
 }
 
+/**
+  * @brief This function handles CM4 send event interrupt for CM7.
+  */
+void CM4_SEV_IRQHandler(void)
+{
+  /* USER CODE BEGIN CM4_SEV_IRQn 0 */
+
+  /* USER CODE END CM4_SEV_IRQn 0 */
+  /* USER CODE BEGIN CM4_SEV_IRQn 1 */
+
+  /* USER CODE END CM4_SEV_IRQn 1 */
+}
+
+/**
+  * @brief This function handles HSEM1 global interrupt.
+  */
+void HSEM1_IRQHandler(void)
+{
+  /* USER CODE BEGIN HSEM1_IRQn 0 */
+
+  /* USER CODE END HSEM1_IRQn 0 */
+  HAL_HSEM_IRQHandler();
+  /* USER CODE BEGIN HSEM1_IRQn 1 */
+
+  /* USER CODE END HSEM1_IRQn 1 */
+}
+
+/**
+  * @brief This function handles Hold core interrupt.
+  */
+void HOLD_CORE_IRQHandler(void)
+{
+  /* USER CODE BEGIN HOLD_CORE_IRQn 0 */
+
+  /* USER CODE END HOLD_CORE_IRQn 0 */
+  /* USER CODE BEGIN HOLD_CORE_IRQn 1 */
+
+  /* USER CODE END HOLD_CORE_IRQn 1 */
+}
+
 /* USER CODE BEGIN 1 */
 
 /* USER CODE END 1 */

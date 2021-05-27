@@ -1,25 +1,26 @@
 /* USER CODE BEGIN Header */
 /**
-  ******************************************************************************
-  * @file           : main.c
-  * @brief          : Main program body
-  ******************************************************************************
-  * @attention
-  *
-  * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
-  * All rights reserved.</center></h2>
-  *
-  * This software component is licensed by ST under BSD 3-Clause license,
-  * the "License"; You may not use this file except in compliance with the
-  * License. You may obtain a copy of the License at:
-  *                        opensource.org/licenses/BSD-3-Clause
-  *
-  ******************************************************************************
-  */
+ ******************************************************************************
+ * @file           : main.c
+ * @brief          : Main program body
+ ******************************************************************************
+ * @attention
+ *
+ * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+ * All rights reserved.</center></h2>
+ *
+ * This software component is licensed by ST under BSD 3-Clause license,
+ * the "License"; You may not use this file except in compliance with the
+ * License. You may obtain a copy of the License at:
+ *                        opensource.org/licenses/BSD-3-Clause
+ *
+ ******************************************************************************
+ */
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
 #include "i2c.h"
+#include "openamp.h"
 #include "spi.h"
 #include "gpio.h"
 
@@ -43,13 +44,19 @@
 
 /* Private macro -------------------------------------------------------------*/
 /* USER CODE BEGIN PM */
-
+#define RPMSG_SERVICE_NAME              "openamp_pingpong_demo"
 /* USER CODE END PM */
 
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
 tMPU9250 chasisIMU;
+
+static  uint32_t message;
+static volatile int message_received;
+static volatile unsigned int received_data;
+
+static struct rpmsg_endpoint rp_endpoint;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,7 +66,27 @@ tMPU9250 chasisIMU;
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
+HSEM_TypeDef * HSEM_DEBUG= HSEM;
 
+static int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data,
+		size_t len, uint32_t src, void *priv)
+{
+	received_data = *((unsigned int *) data);
+	message_received=1;
+
+	return 0;
+}
+
+unsigned int receive_message(void)
+{
+	while (message_received == 0)
+	{
+		OPENAMP_check_for_message();
+	}
+	message_received = 0;
+
+	return received_data;
+}
 /* USER CODE END 0 */
 
 /**
@@ -69,7 +96,7 @@ tMPU9250 chasisIMU;
 int main(void)
 {
   /* USER CODE BEGIN 1 */
-
+	int32_t status = 0;
   /* USER CODE END 1 */
 
 /* USER CODE BEGIN Boot_Mode_Sequence_1 */
@@ -85,6 +112,12 @@ int main(void)
 	HAL_PWREx_EnterSTOPMode(PWR_MAINREGULATOR_ON, PWR_STOPENTRY_WFE, PWR_D2_DOMAIN);
 	/* Clear HSEM flag */
 	__HAL_HSEM_CLEAR_FLAG(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
+
+	HAL_NVIC_ClearPendingIRQ(HSEM2_IRQn);
+
+	/* Add Cortex-M4 user application code here */
+
+
 
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
@@ -105,6 +138,38 @@ int main(void)
   MX_I2C2_Init();
   MX_SPI1_Init();
   /* USER CODE BEGIN 2 */
+	/* Inilitize the mailbox use notify the other core on new message */
+	MAILBOX_Init();
+
+	if (MX_OPENAMP_Init(RPMSG_REMOTE, NULL)!= HAL_OK)
+	{
+		Error_Handler();
+	}
+
+	/* create a endpoint for rmpsg communication */
+	status = OPENAMP_create_endpoint(&rp_endpoint, RPMSG_SERVICE_NAME, RPMSG_ADDR_ANY,
+			rpmsg_recv_callback, NULL);
+	if (status < 0)
+	{
+		Error_Handler();
+	}
+
+	/* Pingpong application*/
+	/* Reveice an interger from the master, incremennt it and send back the result to the master*/
+	while (message < 100)
+	{
+		message = receive_message();
+		message++;
+		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
+		if (status < 0)
+		{
+			Error_Handler();
+		}
+	}
+
+	/* Deinitialize OpenAMP */
+//		OPENAMP_DeInit();
+
 	chasisIMU.deviceAddress = 0x68<<1;
 	chasisIMU.i2cID = hi2c2;
 	initMPU(chasisIMU);
@@ -114,9 +179,17 @@ int main(void)
   /* USER CODE BEGIN WHILE */
 	int16_t AccData[3], GyroData[3], MagData[3];
 	MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
+	uint8_t R = 0;
 	while (1)
 	{
 		MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
+		status = OPENAMP_send(&rp_endpoint,&R, sizeof(R));
+		R++;
+		if (R == 200)
+		{
+			R = 0;
+		}
+		HAL_Delay(100);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */
@@ -135,11 +208,11 @@ int main(void)
 void Error_Handler(void)
 {
   /* USER CODE BEGIN Error_Handler_Debug */
-  /* User can add his own implementation to report the HAL error return state */
-  __disable_irq();
-  while (1)
-  {
-  }
+	/* User can add his own implementation to report the HAL error return state */
+	__disable_irq();
+	while (1)
+	{
+	}
   /* USER CODE END Error_Handler_Debug */
 }
 
@@ -154,7 +227,7 @@ void Error_Handler(void)
 void assert_failed(uint8_t *file, uint32_t line)
 {
   /* USER CODE BEGIN 6 */
-  /* User can add his own implementation to report the file name and line number,
+	/* User can add his own implementation to report the file name and line number,
      ex: printf("Wrong parameters value: file %s on line %d\r\n", file, line) */
   /* USER CODE END 6 */
 }

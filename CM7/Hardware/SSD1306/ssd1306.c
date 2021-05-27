@@ -206,21 +206,27 @@ void ssd1306_UpdateScreen(void) {
 //    X => X Coordinate
 //    Y => Y Coordinate
 //    color => Pixel color
-void ssd1306_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color) {
-    if(x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT) {
+void ssd1306_DrawPixel(uint8_t x, uint8_t y, SSD1306_COLOR color)
+{
+    if(x >= SSD1306_WIDTH || y >= SSD1306_HEIGHT)
+    {
         // Don't write outside the buffer
         return;
     }
     
     // Check if pixel should be inverted
-    if(SSD1306.Inverted) {
+    if(SSD1306.Inverted)
+    {
         color = (SSD1306_COLOR)!color;
     }
     
     // Draw in the right color
-    if(color == White) {
+    if(color == White)
+    {
         SSD1306_Buffer[x + (y / 8) * SSD1306_WIDTH] |= 1 << (y % 8);
-    } else { 
+    }
+    else
+    {
         SSD1306_Buffer[x + (y / 8) * SSD1306_WIDTH] &= ~(1 << (y % 8));
     }
 }
@@ -245,12 +251,17 @@ char ssd1306_WriteChar(char ch, FontDef Font, SSD1306_COLOR color) {
     }
     
     // Use the font to write
-    for(i = 0; i < Font.FontHeight; i++) {
+    for(i = 0; i < Font.FontHeight; i++)
+    {
         b = Font.data[(ch - 32) * Font.FontHeight + i];
-        for(j = 0; j < Font.FontWidth; j++) {
-            if((b << j) & 0x8000)  {
+        for(j = 0; j < Font.FontWidth; j++)
+        {
+            if((b << j) & 0x8000)
+            {
                 ssd1306_DrawPixel(SSD1306.CurrentX + j, (SSD1306.CurrentY + i), (SSD1306_COLOR) color);
-            } else {
+            }
+            else
+            {
                 ssd1306_DrawPixel(SSD1306.CurrentX + j, (SSD1306.CurrentY + i), (SSD1306_COLOR)!color);
             }
         }
@@ -266,8 +277,10 @@ char ssd1306_WriteChar(char ch, FontDef Font, SSD1306_COLOR color) {
 // Write full string to screenbuffer
 char ssd1306_WriteString(char* str, FontDef Font, SSD1306_COLOR color) {
     // Write until null-byte
-    while (*str) {
-        if (ssd1306_WriteChar(*str, Font, color) != *str) {
+    while (*str)
+    {
+        if (ssd1306_WriteChar(*str, Font, color) != *str)
+        {
             // Char could not be written
             return *str;
         }

@@ -1,3 +1,11 @@
-main.c:73:5:main	16	static
-main.c:150:6:SystemClock_Config	120	static
-main.c:212:6:Error_Handler	4	static,ignoring_inline_asm
+rpmsg.h:147:19:rpmsg_send	32	static
+rpmsg.h:286:20:rpmsg_init_ept	24	static
+main.c:73:12:rpmsg_recv_callback	24	static
+main.c:82:14:receive_message	8	static
+main.c:92:6:service_destroy_cb	16	static
+main.c:100:6:new_service_cb	32	static
+main.c:113:5:main	64	static,ignoring_inline_asm
+main.c:267:6:SystemClock_Config	120	static
+main.c:327:13:CPU_CACHE_Enable	24	static,ignoring_inline_asm
+main.c:343:13:MPU_Config	24	static
+main.c:374:6:Error_Handler	4	static,ignoring_inline_asm

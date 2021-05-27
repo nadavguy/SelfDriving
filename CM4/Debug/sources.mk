@@ -25,5 +25,7 @@ Core/Src \
 Core/Startup \
 Drivers/STM32H7xx_HAL_Driver \
 Hardware/MPU9250 \
+Middlewares/Third_Party/OpenAMP \
 Modules/Src \
+OPENAMP \
 

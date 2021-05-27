@@ -32,10 +32,17 @@ extern "C" {
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "openamp.h"
+#include "mbox_hsem.h"
+//#include "stm32h745i_discovery.h"
+
+
 #include <stdbool.h>
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <stddef.h>
+#include <errno.h>
 
 #include "ssd1306.h"
 #include "ssd1306_conf.h"

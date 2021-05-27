@@ -160,7 +160,7 @@ void readRegisters(tMPU9250 mpuToInit, uint8_t subAddress, uint8_t count, uint8_
 {
 //	MPU_SPI_Read(dest, subAddress, count);
 
-	HAL_I2C_Mem_Read(&mpuToInit.i2cID, mpuToInit.deviceAddress, subAddress, 1, dest, count, HAL_MAX_DELAY);
+	HAL_I2C_Mem_Read(&mpuToInit.i2cID, mpuToInit.deviceAddress, subAddress, 1, dest, count, HAL_MAX_DELAY-1);
 }
 
 /* writes a register to the AK8963 given a register address and data */
