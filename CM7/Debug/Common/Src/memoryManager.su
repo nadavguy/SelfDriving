@@ -1,0 +1,4 @@
+memoryManager.c:7:5:rpmsg_recv_callback	24	static
+memoryManager.c:31:14:receive_message	8	static
+memoryManager.c:41:6:service_destroy_cb	16	static
+memoryManager.c:49:6:new_service_cb	32	static

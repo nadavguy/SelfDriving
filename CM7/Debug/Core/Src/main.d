@@ -76,6 +76,7 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_conf.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_fonts.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_tests.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h \
  ../Core/Inc/eth.h ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/spi.h \
  ../Core/Inc/usart.h ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h
 
@@ -238,6 +239,8 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_fonts.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_tests.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h:
 
 ../Core/Inc/eth.h:
 

@@ -1,0 +1,2 @@
+memoryManager.c:7:5:rpmsg_recv_callback	24	static
+memoryManager.c:18:14:receive_message	8	static

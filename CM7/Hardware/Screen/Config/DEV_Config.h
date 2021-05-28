@@ -47,9 +47,9 @@
 /**
  * GPIO config
 **/
-#define DEV_RST_PIN     GPIOC,GPIO_PIN_8		//PA9
-#define DEV_DC_PIN      GPIOC,GPIO_PIN_6			//PA8
-#define DEV_CS_PIN		GPIOC,GPIO_PIN_5			//PB6
+#define DEV_RST_PIN     GPIOF,GPIO_PIN_15		//PA9
+#define DEV_DC_PIN      GPIOD,GPIO_PIN_0			//PA8
+#define DEV_CS_PIN		GPIOD,GPIO_PIN_1			//PB6
 #define DEV_BL_PIN			TIM3->CCR2 							//PC7
 
 /**

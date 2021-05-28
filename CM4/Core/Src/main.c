@@ -27,6 +27,7 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ImuAgent.h"
+#include "memoryManager.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -51,12 +52,19 @@
 
 /* USER CODE BEGIN PV */
 tMPU9250 chasisIMU;
+tRPYANGLES receivedAnglesData;
 
-static  uint32_t message;
-static volatile int message_received;
-static volatile unsigned int received_data;
+//static  uint32_t message;
+//static volatile int message_received;
+//static volatile unsigned int received_data;
+//
+//static struct rpmsg_endpoint rp_endpoint;
 
-static struct rpmsg_endpoint rp_endpoint;
+uint32_t message;
+volatile int message_received;
+volatile unsigned int received_data;
+
+struct rpmsg_endpoint rp_endpoint;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -68,25 +76,25 @@ static struct rpmsg_endpoint rp_endpoint;
 /* USER CODE BEGIN 0 */
 HSEM_TypeDef * HSEM_DEBUG= HSEM;
 
-static int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data,
-		size_t len, uint32_t src, void *priv)
-{
-	received_data = *((unsigned int *) data);
-	message_received=1;
-
-	return 0;
-}
-
-unsigned int receive_message(void)
-{
-	while (message_received == 0)
-	{
-		OPENAMP_check_for_message();
-	}
-	message_received = 0;
-
-	return received_data;
-}
+//static int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data,
+//		size_t len, uint32_t src, void *priv)
+//{
+//	received_data = *((unsigned int *) data);
+//	message_received=1;
+//
+//	return 0;
+//}
+//
+//unsigned int receive_message(void)
+//{
+//	while (message_received == 0)
+//	{
+//		OPENAMP_check_for_message();
+//	}
+//	message_received = 0;
+//
+//	return received_data;
+//}
 /* USER CODE END 0 */
 
 /**

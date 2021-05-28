@@ -71,7 +71,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Middlewares/Third_Party/OpenAMP/open-amp/lib/include/openamp/remoteproc.h \
  ../../Middlewares/Third_Party/OpenAMP/open-amp/lib/include/openamp/remoteproc_virtio.h \
  ../OPENAMP/openamp_conf.h ../OPENAMP/mbox_hsem.h ../Core/Inc/spi.h \
- ../Core/Inc/gpio.h
+ ../Core/Inc/gpio.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h
 
 ../Core/Inc/main.h:
 
@@ -228,3 +229,5 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU
 ../Core/Inc/spi.h:
 
 ../Core/Inc/gpio.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h:

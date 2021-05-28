@@ -41,11 +41,13 @@ extern "C" {
 #include "ImuAgent.h"
 #include "MPU9250.h"
 #include "MPU9250_Config.h"
+
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 extern tMPU9250 chasisIMU;
+//extern tRPYANGLES receivedAnglesData;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -71,7 +73,11 @@ void Error_Handler(void);
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
 /* USER CODE BEGIN Private defines */
+extern uint32_t message;
+extern volatile int message_received;
+extern volatile unsigned int received_data;
 
+extern struct rpmsg_endpoint rp_endpoint;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

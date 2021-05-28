@@ -48,11 +48,12 @@ extern "C" {
 #include "ssd1306_conf.h"
 #include "ssd1306_fonts.h"
 #include "ssd1306_tests.h"
+#include "memoryManager.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-
+extern tRPYANGLES sentAnglesData;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
@@ -78,7 +79,11 @@ void Error_Handler(void);
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
 /* USER CODE BEGIN Private defines */
-
+extern uint32_t message;
+extern volatile int message_received;
+extern volatile int service_created;
+extern volatile unsigned int received_data;
+extern struct rpmsg_endpoint rp_endpoint;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus
