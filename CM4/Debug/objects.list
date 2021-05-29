@@ -54,6 +54,7 @@
 "Middlewares/Third_Party/OpenAMP/time.o"
 "Middlewares/Third_Party/OpenAMP/virtio.o"
 "Middlewares/Third_Party/OpenAMP/virtqueue.o"
+"Modules/Src/AHRS.o"
 "Modules/Src/ImuAgent.o"
 "OPENAMP/mbox_hsem.o"
 "OPENAMP/openamp.o"

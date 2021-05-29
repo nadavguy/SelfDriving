@@ -38,6 +38,7 @@ Core/Src/stm32h7xx_it.o: ../Core/Src/stm32h7xx_it.c ../Core/Inc/main.h \
  c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm4\hardware\mpu9250\mpu9250_config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h \
  ../Core/Inc/stm32h7xx_it.h
 
 ../Core/Inc/main.h:
@@ -119,5 +120,7 @@ c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm4\hardware\mpu9250\mpu
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h:
 
 ../Core/Inc/stm32h7xx_it.h:

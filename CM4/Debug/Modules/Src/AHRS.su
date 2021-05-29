@@ -1,0 +1,3 @@
+AHRS.c:11:7:OneOverSqrt	16	static
+AHRS.c:16:6:CalculateAngles	64	static
+AHRS.c:54:6:UpdateAHRS	216	static

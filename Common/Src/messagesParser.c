@@ -16,6 +16,12 @@ void parseRecievedMessages(uint8_t opCode)
 		{
 			int a = 1;
 			memcpy(receivedAnglesData, (uint32_t *)receivedDataPointer, sizeof(tANGLESMESSAGES));
+			char localT[32] = "";
+			snprintf(localT,sizeof(localT),"R: %3.3f, P: %3.3f, Y: %3.3f", receivedAnglesData->bodyAngles.Roll,
+					receivedAnglesData->bodyAngles.Pitch,receivedAnglesData->bodyAngles.Yaw);
+			ssd1306_SetCursor(0, 12);
+			ssd1306_WriteString(localT, Font_7x10, White);
+			ssd1306_UpdateScreen();
 		}
 #endif
 		default:

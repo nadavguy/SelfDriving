@@ -37,11 +37,13 @@ extern "C" {
 #include <stdint.h>
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
 
 #include "ImuAgent.h"
 #include "MPU9250.h"
 #include "MPU9250_Config.h"
 #include "messagesParser.h"
+#include "AHRS.h"
 
 /* USER CODE END Includes */
 

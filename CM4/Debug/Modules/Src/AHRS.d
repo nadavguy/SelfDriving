@@ -1,5 +1,4 @@
-Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
- ../Core/Inc/main.h \
+Modules/Src/AHRS.o: ../Modules/Src/AHRS.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -36,13 +35,10 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ImuAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250.h \
- ../Core/Inc/main.h \
  c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm4\hardware\mpu9250\mpu9250_config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h
-
-../Core/Inc/usart.h:
 
 ../Core/Inc/main.h:
 
@@ -117,8 +113,6 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ImuAgent.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250.h:
-
-../Core/Inc/main.h:
 
 c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm4\hardware\mpu9250\mpu9250_config.h:
 
