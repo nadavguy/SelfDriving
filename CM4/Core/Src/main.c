@@ -52,7 +52,7 @@
 
 /* USER CODE BEGIN PV */
 tMPU9250 chasisIMU;
-tRPYANGLES receivedAnglesData;
+tANGLESMESSAGES sentAnglesData;
 
 //static  uint32_t message;
 //static volatile int message_received;
@@ -191,7 +191,21 @@ int main(void)
 	while (1)
 	{
 		MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
-		status = OPENAMP_send(&rp_endpoint,&R, sizeof(R));
+		sentAnglesData.opCode = 1;
+		sentAnglesData.bodyAngles.Pitch = 13;
+		sentAnglesData.bodyAngles.Roll = 14;
+		sentAnglesData.bodyAngles.Yaw = 15;
+		sentAnglesData.lidarAngles.Pitch = 45;
+		sentAnglesData.lidarAngles.Roll = 46;
+		sentAnglesData.lidarAngles.Yaw = 47;
+		if (R == 1)
+		{
+			status = OPENAMP_send(&rp_endpoint,&sentAnglesData, sizeof(sentAnglesData));
+		}
+		else
+		{
+			status = OPENAMP_send(&rp_endpoint,&R, sizeof(R));
+		}
 		R++;
 		if (R == 200)
 		{

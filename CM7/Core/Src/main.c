@@ -53,7 +53,7 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
-tRPYANGLES sentAnglesData;
+tANGLESMESSAGES *receivedAnglesData;
 
 //static  uint32_t message = 0;
 //static volatile int message_received;
@@ -129,6 +129,16 @@ int main(void)
 /* USER CODE BEGIN Boot_Mode_Sequence_1 */
 	MPU_Config();
 	CPU_CACHE_Enable();
+	timeout = 0xFFFF;
+	//	while((__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET) && (timeout-- > 0));
+	//	if ( timeout < 0 )
+	//	{
+	//		Error_Handler();
+	//	}
+	  while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
+	  {
+	      asm("nop");
+	  }
 	/* Wait until CPU2 boots and enters in stop mode or timeout*/
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
@@ -153,16 +163,7 @@ HSEM notification */
 	HAL_HSEM_Release(HSEM_ID_0,0);
 	/* wait until CPU2 wakes up from stop mode */
 
-	timeout = 0xFFFF;
-	//	while((__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET) && (timeout-- > 0));
-	//	if ( timeout < 0 )
-	//	{
-	//		Error_Handler();
-	//	}
-	  while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
-	  {
-	      asm("nop");
-	  }
+
 /* USER CODE END Boot_Mode_Sequence_2 */
 
   /* USER CODE BEGIN SysInit */
@@ -193,7 +194,7 @@ HSEM notification */
 	 * The rpmsg service is initiate by the remote processor, on A7 new_service_cb
 	 * callback is received on service creation. Wait for the callback
 	 */
-	HAL_Delay(2000);
+//	HAL_Delay(2000);
 	OPENAMP_Wait_EndPointready(&rp_endpoint);
 
 	/* Send the massage to the remote CPU */

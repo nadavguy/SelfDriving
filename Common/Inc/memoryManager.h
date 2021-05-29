@@ -17,13 +17,13 @@ typedef struct sRPYANGLES
 	float Yaw;
 }tRPYANGLES;
 
-typedef struct sANGLESDATA
+typedef struct sANGLESMESSAGES
 {
 	uint8_t opCode;
 	tRPYANGLES bodyAngles;
 	tRPYANGLES lidarAngles;
 
-}tANGLESDATA;
+}tANGLESMESSAGES;
 
 extern uint32_t receivedDataPointer;
 

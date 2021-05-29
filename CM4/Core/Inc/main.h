@@ -41,13 +41,14 @@ extern "C" {
 #include "ImuAgent.h"
 #include "MPU9250.h"
 #include "MPU9250_Config.h"
+#include "messagesParser.h"
 
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 extern tMPU9250 chasisIMU;
-//extern tRPYANGLES receivedAnglesData;
+//extern tRPYANGLES sentAnglesData;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/

@@ -37,6 +37,7 @@ Hardware/MPU9250/MPU9250.o: ../Hardware/MPU9250/MPU9250.c \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ImuAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/messagesParser.h \
  ../Hardware/MPU9250/../MPU9250/../MPU9250/MPU9250_Config.h \
  ../Core/Inc/spi.h ../Core/Inc/main.h
 
@@ -117,6 +118,8 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ImuAgent
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/messagesParser.h:
 
 ../Hardware/MPU9250/../MPU9250/../MPU9250/MPU9250_Config.h:
 

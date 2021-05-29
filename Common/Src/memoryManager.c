@@ -8,9 +8,9 @@ int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data,
 		size_t len, uint32_t src, void *priv)
 {
 	received_data = *((unsigned int *) data);
-	receivedDataPointer = (unsigned int *) data;
+	receivedDataPointer = (uint32_t)((unsigned int *) data);
 	message_received=1;
-
+	parseRecievedMessages((uint8_t)received_data);
 	return 0;
 }
 

@@ -49,11 +49,12 @@ extern "C" {
 #include "ssd1306_fonts.h"
 #include "ssd1306_tests.h"
 #include "memoryManager.h"
+#include "messagesParser.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
-extern tRPYANGLES sentAnglesData;
+extern tANGLESMESSAGES *receivedAnglesData;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
