@@ -32,6 +32,5 @@ Hardware/Screen/LCD \
 Hardware/Screen/example \
 Hardware/Screen/image \
 Middlewares/Third_Party/OpenAMP \
-Modules/Src \
 OPENAMP \
 

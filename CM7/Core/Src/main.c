@@ -245,16 +245,12 @@ HSEM notification */
   /* USER CODE BEGIN WHILE */
 	while (1)
 	{
-		if(service_created)
-		{
-			OPENAMP_check_for_message();
-			message = receive_message();
-			char localT[32] = "";
-			snprintf(localT,sizeof(localT),"%03d",message);
-			ssd1306_SetCursor(0, 0);
-			ssd1306_WriteString(localT, Font_7x10, White);
-			ssd1306_UpdateScreen();
-		}
+		message = receive_message();
+		char localT[32] = "";
+		snprintf(localT,sizeof(localT),"%03d",message);
+		ssd1306_SetCursor(0, 0);
+		ssd1306_WriteString(localT, Font_7x10, White);
+		ssd1306_UpdateScreen();
 
     /* USER CODE END WHILE */
 

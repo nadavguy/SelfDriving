@@ -11,13 +11,13 @@ void parseRecievedMessages(uint8_t opCode)
 {
 	switch (opCode)
 	{
+#ifdef CORE_CM7
 		case (1):
 		{
 			int a = 1;
-#ifdef CORE_CM7
-			memcpy(receivedAnglesData, receivedDataPointer, sizeof(tANGLESMESSAGE));
-#endif
+			memcpy(receivedAnglesData, (uint32_t *)receivedDataPointer, sizeof(tANGLESMESSAGES));
 		}
+#endif
 		default:
 		{
 
