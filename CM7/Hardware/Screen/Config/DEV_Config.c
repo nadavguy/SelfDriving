@@ -44,7 +44,7 @@ void DEV_delay_ms(uint16_t xms )
 
 void DEV_SPI_WRite(UBYTE _dat)
 {
-	HAL_SPI_Transmit(&hspi2, (uint8_t *)&_dat, 1, 500);
+	HAL_SPI_Transmit(&hspi3, (uint8_t *)&_dat, 1, 500);
 }
 
 int DEV_Module_Init(void)

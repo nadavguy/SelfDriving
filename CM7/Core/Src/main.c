@@ -29,7 +29,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "LCD_Test.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -130,15 +130,10 @@ int main(void)
 	MPU_Config();
 	CPU_CACHE_Enable();
 	timeout = 0xFFFF;
-	//	while((__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET) && (timeout-- > 0));
-	//	if ( timeout < 0 )
-	//	{
-	//		Error_Handler();
-	//	}
-	  while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
-	  {
-	      asm("nop");
-	  }
+//	  while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
+//	  {
+//	      asm("nop");
+//	  }
 	/* Wait until CPU2 boots and enters in stop mode or timeout*/
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
@@ -176,9 +171,10 @@ HSEM notification */
   MX_USART3_UART_Init();
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
-  MX_SPI2_Init();
+  MX_SPI3_Init();
   /* USER CODE BEGIN 2 */
 
+  LCD_2in4_test();
 	MAILBOX_Init();
 
 	/* Initialize the rpmsg endpoint to set default addresses to RPMSG_ADDR_ANY */
