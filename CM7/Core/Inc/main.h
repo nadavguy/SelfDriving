@@ -79,6 +79,10 @@ void Error_Handler(void);
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
+#define I2C1_SCL___ChassisMPU_Pin GPIO_PIN_6
+#define I2C1_SCL___ChassisMPU_GPIO_Port GPIOB
+#define I2C1_SDA___ChassisMPU_Pin GPIO_PIN_7
+#define I2C1_SDA___ChassisMPU_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 extern uint32_t message;
 extern volatile int message_received;
