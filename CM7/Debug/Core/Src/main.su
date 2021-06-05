@@ -1,7 +1,7 @@
 rpmsg.h:147:19:rpmsg_send	32	static
 rpmsg.h:286:20:rpmsg_init_ept	24	static
-main.c:120:5:main	64	static
-main.c:262:6:SystemClock_Config	120	static
-main.c:322:13:CPU_CACHE_Enable	24	static,ignoring_inline_asm
-main.c:338:13:MPU_Config	24	static
-main.c:369:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:87:5:main	72	static,ignoring_inline_asm
+main.c:239:6:SystemClock_Config	120	static
+main.c:299:13:CPU_CACHE_Enable	24	static,ignoring_inline_asm
+main.c:315:13:MPU_Config	24	static
+main.c:346:6:Error_Handler	4	static,ignoring_inline_asm

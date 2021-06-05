@@ -17,7 +17,7 @@
 #include <stdlib.h>		//itoa()
 #include <stdio.h>
 
-LCD_1IN3_ATTRIBUTES LCD;
+LCD_1IN3_ATTRIBUTES localLCD;
 
 
 /******************************************************************************
@@ -160,17 +160,17 @@ parameter:
 static void LCD_1IN3_SetAttributes(UBYTE Scan_dir)
 {
     //Get the screen scan direction
-    LCD.SCAN_DIR = Scan_dir;
+	localLCD.SCAN_DIR = Scan_dir;
     UBYTE MemoryAccessReg = 0x00;
 
     //Get GRAM and LCD width and height
     if(Scan_dir == HORIZONTAL) {
-        LCD.HEIGHT	= LCD_1IN3_HEIGHT;
-        LCD.WIDTH   = LCD_1IN3_WIDTH;
+    	localLCD.HEIGHT	= LCD_1IN3_HEIGHT;
+    	localLCD.WIDTH   = LCD_1IN3_WIDTH;
         MemoryAccessReg = 0X70;
     } else {
-        LCD.HEIGHT	= LCD_1IN3_WIDTH;
-        LCD.WIDTH   = LCD_1IN3_HEIGHT;
+    	localLCD.HEIGHT	= LCD_1IN3_WIDTH;
+    	localLCD.WIDTH   = LCD_1IN3_HEIGHT;
         MemoryAccessReg = 0X00;
     }
 

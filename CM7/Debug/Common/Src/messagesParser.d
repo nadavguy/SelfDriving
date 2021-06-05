@@ -33,6 +33,8 @@ Common/Src/messagesParser.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
@@ -79,7 +81,18 @@ Common/Src/messagesParser.o: \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_fonts.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_tests.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/MenuHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/ItemHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/PopupHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/GUI_DEV/GUI_Paint.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/DEV_Config.h \
+ ../Core/Inc/spi.h ../Core/Inc/main.h ../Core/Inc/tim.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h
 
 ../Core/Inc/main.h:
 
@@ -146,6 +159,10 @@ Common/Src/messagesParser.o: \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
+
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
+
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 
@@ -244,3 +261,29 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/MenuHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/ItemHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/PopupHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/GUI_DEV/GUI_Paint.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/DEV_Config.h:
+
+../Core/Inc/spi.h:
+
+../Core/Inc/main.h:
+
+../Core/Inc/tim.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h:

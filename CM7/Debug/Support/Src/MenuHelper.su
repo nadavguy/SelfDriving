@@ -1,0 +1,5 @@
+MenuHelper.c:42:6:initMenuPages	16	static
+MenuHelper.c:189:6:initMenuItems	16	static
+MenuHelper.c:326:6:initPopupMessages	8	static
+MenuHelper.c:399:6:updateSelection	8	static
+MenuHelper.c:530:6:updateSelectedParameter	8	static

@@ -170,3 +170,39 @@ void UpdateAHRS(tAHRSDATA *inputAHRS, float gx, float gy, float gz, float ax, fl
     /* Calculate new angles */
     CalculateAngles(inputAHRS);
 }
+
+void initAHRS(tAHRSDATA *imuAHRS)
+{
+	imuAHRS->q0 = 1;
+	imuAHRS->q1 = 0;
+	imuAHRS->q2 = 0;
+	imuAHRS->q3 = 0;
+	imuAHRS->sampleRate = 1/20.0;
+}
+
+void runAHRSCycle(void)
+{
+	if (HAL_GetTick() - lastChasisIMUMeasurement > 50)
+	{
+		int16_t AccData[3], GyroData[3], MagData[3];
+		MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
+		chasisIMUAHRS.AccData[0] = 9.80665 * AccData[0] / 16384.0;
+		chasisIMUAHRS.AccData[1] = 9.80665 * AccData[1] / 16384.0;
+		chasisIMUAHRS.AccData[2] = 9.80665 * AccData[2] / 16384.0;
+
+		chasisIMUAHRS.GyroData[0] = GyroData[0] / 131.0; // Degrees / Sec
+		chasisIMUAHRS.GyroData[1] = GyroData[1] / 131.0;
+		chasisIMUAHRS.GyroData[2] = GyroData[2] / 131.0;
+
+		chasisIMUAHRS.MagData[0] = MagData[0] * 0.6;
+		chasisIMUAHRS.MagData[1] = MagData[1] * 0.6;
+		chasisIMUAHRS.MagData[2] = MagData[2] * 0.6;
+
+		UpdateAHRS(&chasisIMUAHRS,
+				chasisIMUAHRS.GyroData[0] * AHRSIMU_DEG2RAD, chasisIMUAHRS.GyroData[1] * AHRSIMU_DEG2RAD,
+				chasisIMUAHRS.GyroData[2] * AHRSIMU_DEG2RAD,
+				chasisIMUAHRS.AccData[0], chasisIMUAHRS.AccData[1], chasisIMUAHRS.AccData[2],
+				chasisIMUAHRS.MagData[0], chasisIMUAHRS.MagData[1], chasisIMUAHRS.MagData[2]);
+		lastChasisIMUMeasurement = HAL_GetTick();
+	}
+}

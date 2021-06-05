@@ -31,6 +31,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
+ ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pcd.h \
@@ -78,14 +80,23 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_tests.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/MenuHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/ItemHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/PopupHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
  ../Core/Inc/eth.h ../Core/Inc/main.h ../Core/Inc/i2c.h ../Core/Inc/spi.h \
- ../Core/Inc/usart.h ../Core/Inc/usb_otg.h ../Core/Inc/gpio.h \
+ ../Core/Inc/tim.h ../Core/Inc/usart.h ../Core/Inc/usb_otg.h \
+ ../Core/Inc/gpio.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/example/LCD_Test.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/DEV_Config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/GUI_DEV/GUI_Paint.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/LCD/LCD_1in8.h \
+ c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm7\hardware\screen\fonts\fonts.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/image/LogoImages.h
 
 ../Core/Inc/main.h:
 
@@ -152,6 +163,10 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
+
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
+
+../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h:
 
@@ -251,6 +266,18 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h:
 
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/MenuHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/ItemHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/PopupHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h:
+
 ../Core/Inc/eth.h:
 
 ../Core/Inc/main.h:
@@ -258,6 +285,8 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParse
 ../Core/Inc/i2c.h:
 
 ../Core/Inc/spi.h:
+
+../Core/Inc/tim.h:
 
 ../Core/Inc/usart.h:
 
@@ -273,6 +302,10 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Conf
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/GUI_DEV/GUI_Paint.h:
 
-C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h:
-
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Config/Debug.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/LCD/LCD_1in8.h:
+
+c:\users\raing\stm32cubeide\workspace_1.3.0\selfdriving\cm7\hardware\screen\fonts\fonts.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/image/LogoImages.h:

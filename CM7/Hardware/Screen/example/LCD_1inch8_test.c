@@ -47,7 +47,7 @@ void LCD_1in8_test()
 
   Paint_DrawFloatNum  (1, 37 ,987.654321,5,  &Font12,    0x000f,   0xfff0);
   Paint_DrawString_EN(1, 50, "ABC", &Font20, 0xF000, 0x0FFF);
-	Paint_DrawString_CN(1,90, "Î¢Ñ©µç×Ó",  &Font24CN, WHITE, BLUE);
+	Paint_DrawString_CN(1,90, "Î¢Ñ©ï¿½ï¿½ï¿½ï¿½",  &Font24CN, WHITE, BLUE);
 	
 	Paint_DrawImage(gImage_1,80,35,60,60);
 	

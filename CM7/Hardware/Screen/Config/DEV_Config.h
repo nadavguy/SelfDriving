@@ -36,7 +36,7 @@
 #include <stdint.h>
 #include <stdio.h>
 #include "spi.h"
-//#include "tim.h"
+#include "tim.h"
 #include "Debug.h"
 #include "main.h"
 
@@ -50,7 +50,10 @@
 #define DEV_RST_PIN     GPIOF,GPIO_PIN_15		//PF15
 #define DEV_DC_PIN      GPIOG,GPIO_PIN_8		//PG8
 #define DEV_CS_PIN		GPIOG,GPIO_PIN_6		//PG6
-#define DEV_BL_PIN			TIM3->CCR2 							//PC7
+#define DEV_BL_PIN		TIM1->CCR1				//PE9
+#define DEV_SPI			hspi3
+#define DEV_BL_CH		TIM_CHANNEL_1
+#define DEV_BL_TIM		htim1
 
 /**
  * GPIO read and write

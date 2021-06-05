@@ -50,6 +50,15 @@ extern "C" {
 #include "ssd1306_tests.h"
 #include "memoryManager.h"
 #include "messagesParser.h"
+
+#include "fonts.h"
+
+
+#include "MenuHelper.h"
+#include "ItemHelper.h"
+#include "PopupHelper.h"
+#include "FrameHelper.h"
+#include "ScreenAgent.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -75,6 +84,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TIM1_CH1___LCD_Brightness_Pin GPIO_PIN_9
+#define TIM1_CH1___LCD_Brightness_GPIO_Port GPIOE
 #define STLINK_RX_Pin GPIO_PIN_8
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
@@ -89,6 +100,8 @@ extern volatile int message_received;
 extern volatile int service_created;
 extern volatile unsigned int received_data;
 extern struct rpmsg_endpoint rp_endpoint;
+
+extern tCURSOR_DATA currentCursorPosition;
 /* USER CODE END Private defines */
 
 #ifdef __cplusplus

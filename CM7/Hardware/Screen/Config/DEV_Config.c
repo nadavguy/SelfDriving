@@ -44,7 +44,7 @@ void DEV_delay_ms(uint16_t xms )
 
 void DEV_SPI_WRite(UBYTE _dat)
 {
-	HAL_SPI_Transmit(&hspi3, (uint8_t *)&_dat, 1, 500);
+	HAL_SPI_Transmit(&DEV_SPI, (uint8_t *)&_dat, 1, 500);
 }
 
 int DEV_Module_Init(void)
@@ -52,7 +52,7 @@ int DEV_Module_Init(void)
     DEV_Digital_Write(DEV_DC_PIN, 1);
     DEV_Digital_Write(DEV_CS_PIN, 1);
     DEV_Digital_Write(DEV_RST_PIN, 1);
-//    HAL_TIM_PWM_Start(&htim3, TIM_CHANNEL_2);
+    HAL_TIM_PWM_Start(&DEV_BL_TIM, DEV_BL_CH);
 		return 0;
 }
 
@@ -62,5 +62,5 @@ void DEV_Module_Exit(void)
     DEV_Digital_Write(DEV_CS_PIN, 0);
     //close 
     DEV_Digital_Write(DEV_RST_PIN, 0);
-//    HAL_TIM_PWM_Stop(&htim3,TIM_CHANNEL_2);
+    HAL_TIM_PWM_Stop(&DEV_BL_TIM,DEV_BL_CH);
 }

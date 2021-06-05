@@ -9,6 +9,8 @@
 #define INC_MEMORYMANAGER_H_
 
 #include "main.h"
+#include "openamp.h"
+
 
 typedef struct sRPYANGLES
 {
@@ -31,6 +33,8 @@ extern int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data, size_t le
 extern unsigned int receive_message(void);
 extern void service_destroy_cb(struct rpmsg_endpoint *ept);
 extern void new_service_cb(struct rpmsg_device *rdev, const char *name, uint32_t dest);
-
+#ifdef CORE_CM4
+extern void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS);
+#endif
 
 #endif /* INC_IMUAGENT_H_ */

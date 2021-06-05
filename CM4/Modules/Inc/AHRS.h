@@ -30,6 +30,7 @@ typedef struct sAHRSDATA
 
 extern void UpdateAHRS(tAHRSDATA *inputAHRS, float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz);
 extern void CalculateAngles(tAHRSDATA *inputAHRS);
-
+extern void initAHRS(tAHRSDATA *imuAHRS);
+extern void runAHRSCycle(void);
 
 #endif /* INC_AHRS_H_ */

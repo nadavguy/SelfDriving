@@ -1,12 +1,12 @@
 /*****************************************************************************
-* | File      	:	LCD_2IN4_Driver.c
-* | Author      :   Waveshare team
-* | Function    :   LCD driver
-* | Info        :
-*----------------
-* |	This version:   V1.0
-* | Date        :   2020-07-29
-* | Info        :   
+ * | File      	:	LCD_2IN4_Driver.c
+ * | Author      :   Waveshare team
+ * | Function    :   LCD driver
+ * | Info        :
+ *----------------
+ * |	This version:   V1.0
+ * | Date        :   2020-07-29
+ * | Info        :
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documnetation files (the "Software"), to deal
@@ -26,13 +26,16 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 # THE SOFTWARE.
 #
-******************************************************************************/
+ ******************************************************************************/
 #include "LCD_2inch4.h"
+#include "DEV_Config.h"
 #include <string.h>
+#include <stdlib.h>		//itoa()
+#include <stdio.h>
 /*******************************************************************************
 function:
 	Hardware reset
-*******************************************************************************/
+ *******************************************************************************/
 static void LCD_2IN4_Reset(void)
 {
 	LCD_2IN4_RST_1;
@@ -46,7 +49,7 @@ static void LCD_2IN4_Reset(void)
 /*******************************************************************************
 function:
 		Write data and commands
-*******************************************************************************/
+ *******************************************************************************/
 static void LCD_2IN4_Write_Command(UBYTE data)	 
 {	
 	LCD_2IN4_CS_0;
@@ -74,13 +77,13 @@ void LCD_2IN4_WriteData_Word(UWORD data)
 /******************************************************************************
 function:	
 		Common register initialization
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_Init(void)
 {
 	LCD_2IN4_Reset();
 
-	LCD_2IN4_SetBackLight(500);//´ò¿ª±³¹â
-  HAL_Delay(100);
+	LCD_2IN4_SetBackLight(500);//ï¿½ò¿ª±ï¿½ï¿½ï¿½
+	HAL_Delay(100);
 	
 	//************* Start Initial Sequence **********//
 	LCD_2IN4_Write_Command(0x11); //Sleep out 
@@ -122,7 +125,7 @@ void LCD_2IN4_Init(void)
 	LCD_2IN4_Write_Command(0x3A); // Memory Access Control
 	LCD_2IN4_WriteData_Byte(0x55);
 	LCD_2IN4_Write_Command(0x36); // Memory Access Control
-  LCD_2IN4_WriteData_Byte(0x08);
+	LCD_2IN4_WriteData_Byte(0x08);
 	LCD_2IN4_Write_Command(0xB1);
 	LCD_2IN4_WriteData_Byte(0x00);
 	LCD_2IN4_WriteData_Byte(0x12);
@@ -180,7 +183,7 @@ parameter	:
 	  Ystart:	Start UWORD y coordinate
 	  Xend  :	End UWORD coordinates
 	  Yend  :	End UWORD coordinatesen
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_SetWindow(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD  Yend)
 { 
 	LCD_2IN4_Write_Command(0x2a);
@@ -204,7 +207,7 @@ parameter	:
 	  Xstart: 	Start UWORD x coordinate
 	  Ystart:	Start UWORD y coordinate
 
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_SetCursor(UWORD X, UWORD Y)
 { 
 	LCD_2IN4_Write_Command(0x2a);
@@ -226,18 +229,18 @@ void LCD_2IN4_SetCursor(UWORD X, UWORD Y)
 function:	Clear screen function, refresh the screen to a certain color
 parameter	:
 	  Color :		The color you want to clear all the screen
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_Clear(UWORD Color)
 {
-    UWORD i,j;
-    LCD_2IN4_SetWindow(0, 0, LCD_2IN4_WIDTH, LCD_2IN4_HEIGHT);
+	UWORD i,j;
+	LCD_2IN4_SetWindow(0, 0, LCD_2IN4_WIDTH, LCD_2IN4_HEIGHT);
 
 	DEV_Digital_Write(DEV_DC_PIN, 1);
 	for(i = 0; i < LCD_2IN4_WIDTH; i++){
 		for(j = 0; j < LCD_2IN4_HEIGHT; j++){
 			LCD_2IN4_WriteData_Word(Color);
 		}
-	 }
+	}
 }
 
 /******************************************************************************
@@ -248,7 +251,7 @@ parameter	:
 	  Xend  :	End UWORD coordinates
 	  Yend  :	End UWORD coordinates
 	  color :	Set the color
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_ClearWindow(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,UWORD color)
 {          
 	UWORD i,j; 
@@ -264,18 +267,18 @@ void LCD_2IN4_ClearWindow(UWORD Xstart, UWORD Ystart, UWORD Xend, UWORD Yend,UWO
 function: Show a picture
 parameter	:
 		image: Picture buffer
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_Display(UBYTE *image)
 {
-    UWORD i,j;
-    LCD_2IN4_SetWindow(0, 0, LCD_2IN4_WIDTH, LCD_2IN4_HEIGHT);
+	UWORD i,j;
+	LCD_2IN4_SetWindow(0, 0, LCD_2IN4_WIDTH, LCD_2IN4_HEIGHT);
 
 	DEV_Digital_Write(DEV_DC_PIN, 1);
 	for(i = 0; i < LCD_2IN4_WIDTH; i++){
 		for(j = 0; j < LCD_2IN4_HEIGHT; j++){
 			LCD_2IN4_WriteData_Word(*(image+i*LCD_2IN4_WIDTH+j));
 		}
-	 }
+	}
 }
 
 /******************************************************************************
@@ -284,18 +287,33 @@ parameter	:
 	    X	: 	Set the X coordinate
 	    Y	:	Set the Y coordinate
 	  Color :	Set the color
-******************************************************************************/
+ ******************************************************************************/
 void LCD_2IN4_DrawPaint(UWORD x, UWORD y, UWORD Color)
 {
-	LCD_2IN4_SetCursor(x, y);
-	LCD_2IN4_WriteData_Word(Color); 	    
+//	LCD_2IN4_SetCursor(x, y);
+//	LCD_2IN4_WriteData_Word(Color);
+	if ( ( x <= 240 ) && ( y <= 320 ) ) //TODO
+	    {
+	    	if (!renderCompleteFrame)
+	    	{
+//	    		LCD_1IN8_SetCursor (Xpoint, Ypoint);
+//	    		LCD_1IN8_SetColor ( Color , 1 , 1);
+	    		LCD_2IN4_SetCursor(x, y);
+	    		LCD_2IN4_WriteData_Word(Color);
+	    	}
+	    	else
+	    	{
+	    		nextFrameToDraw[(SCREEN_WIDTH * y + x) * 2] = (uint8_t)((Color & 0xFF00) >> 8 );
+	    		nextFrameToDraw[(SCREEN_WIDTH * y + x) * 2 + 1] = (uint8_t)((Color & 0x00FF));
+	    	}
+	    }
 }
 /*******************************************************************************
 function:
 	Setting backlight
 parameter	:
 	  value : Range 0~1000   Duty cycle is value/1000	
-*******************************************************************************/
+ *******************************************************************************/
 void LCD_2IN4_SetBackLight(UWORD Value)
 {
 	DEV_Set_PWM(Value);

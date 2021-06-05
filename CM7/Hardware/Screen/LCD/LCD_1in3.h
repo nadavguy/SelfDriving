@@ -22,7 +22,7 @@
 
 
 #define LCD_1IN3_HEIGHT 240
-#define LCD_1IN3_WIDTH 240
+#define LCD_1IN3_WIDTH 160
 
 
 #define HORIZONTAL 0
@@ -44,7 +44,7 @@ typedef struct{
 	UWORD HEIGHT;
 	UBYTE SCAN_DIR;
 }LCD_1IN3_ATTRIBUTES;
-extern LCD_1IN3_ATTRIBUTES LCD;
+extern LCD_1IN3_ATTRIBUTES localLCD;
 
 /********************************************************************************
 function:	

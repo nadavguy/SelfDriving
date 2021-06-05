@@ -23,6 +23,7 @@
 #include "i2c.h"
 #include "openamp.h"
 #include "spi.h"
+#include "tim.h"
 #include "usart.h"
 #include "usb_otg.h"
 #include "gpio.h"
@@ -30,6 +31,8 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "LCD_Test.h"
+#include "LCD_1in8.h"
+#include "LogoImages.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -55,11 +58,8 @@
 /* USER CODE BEGIN PV */
 tANGLESMESSAGES *receivedAnglesData;
 
-//static  uint32_t message = 0;
-//static volatile int message_received;
-//static volatile int service_created;
-//static volatile unsigned int received_data;
-//static struct rpmsg_endpoint rp_endpoint;
+tCURSOR_DATA currentCursorPosition;
+
 uint32_t message = 0;
 volatile int message_received;
 volatile int service_created;
@@ -70,47 +70,14 @@ struct rpmsg_endpoint rp_endpoint;
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 /* USER CODE BEGIN PFP */
-//static void SystemClock_Config(void);
+
 static void MPU_Config(void);
 static void CPU_CACHE_Enable(void);
 /* USER CODE END PFP */
 
 /* Private user code ---------------------------------------------------------*/
 /* USER CODE BEGIN 0 */
-//static int rpmsg_recv_callback(struct rpmsg_endpoint *ept, void *data,
-//		size_t len, uint32_t src, void *priv)
-//{
-//	received_data = *((unsigned int *) data);
-//	message_received=1;
-//
-//	return 0;
-//}
-//
-//unsigned int receive_message(void)
-//{
-//	while (message_received == 0 && service_created == 1)
-//	{
-//		OPENAMP_check_for_message();
-//	}
-//	message_received = 0;
-//
-//	return received_data;
-//}
-//void service_destroy_cb(struct rpmsg_endpoint *ept)
-//{
-//	/* this function is called while remote endpoint as been destroyed, the
-//	 * service is no more available
-//	 */
-//	service_created = 0;
-//}
-//
-//void new_service_cb(struct rpmsg_device *rdev, const char *name, uint32_t dest)
-//{
-//	/* create a endpoint for rmpsg communication */
-//	OPENAMP_create_endpoint(&rp_endpoint, name, dest, rpmsg_recv_callback,
-//			service_destroy_cb);
-//	service_created = 1;
-//}
+
 /* USER CODE END 0 */
 
 /**
@@ -123,17 +90,17 @@ int main(void)
 
   /* USER CODE END 1 */
 /* USER CODE BEGIN Boot_Mode_Sequence_0 */
-	int32_t timeout;
+
 /* USER CODE END Boot_Mode_Sequence_0 */
 
 /* USER CODE BEGIN Boot_Mode_Sequence_1 */
 	MPU_Config();
 	CPU_CACHE_Enable();
-	timeout = 0xFFFF;
-//	  while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
-//	  {
-//	      asm("nop");
-//	  }
+//	timeout = 0xFFFF;
+	while (__HAL_RCC_GET_FLAG(RCC_FLAG_D2CKRDY) != RESET)
+	{
+		asm("nop");
+	}
 	/* Wait until CPU2 boots and enters in stop mode or timeout*/
 /* USER CODE END Boot_Mode_Sequence_1 */
   /* MCU Configuration--------------------------------------------------------*/
@@ -172,9 +139,9 @@ HSEM notification */
   MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   MX_SPI3_Init();
+  MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
 
-  LCD_2in4_test();
 	MAILBOX_Init();
 
 	/* Initialize the rpmsg endpoint to set default addresses to RPMSG_ADDR_ANY */
@@ -202,8 +169,8 @@ HSEM notification */
 	}
 
 	//	ssd1306_TestAll();
-	ssd1306_Init();
-	ssd1306_TestBorder();
+//	ssd1306_Init();
+//	ssd1306_TestBorder();
 
 	uint8_t message = 0;
 	while (message < 100)
@@ -212,11 +179,8 @@ HSEM notification */
 		message = receive_message();
 		char localT[32] = "";
 		snprintf(localT,sizeof(localT),"%d",message);
-		ssd1306_SetCursor(0, 0);
-		ssd1306_WriteString(localT, Font_7x10, White);
-		message++;
-
-		/* Send the massage to the remote CPU */
+//		ssd1306_SetCursor(0, 0);
+//		ssd1306_WriteString(localT, Font_7x10, White);
 		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
 		if (status < 0)
 		{
@@ -224,16 +188,10 @@ HSEM notification */
 		}
 	}
 
-	/* wait that service is destroyed on remote side */
-	//	while(service_created)
-	//	{
-	//		OPENAMP_check_for_message();
-	//	}
-
-	//	/* Deinitialize OpenAMP */
-	//	OPENAMP_DeInit();
-
-
+//	isPortrait = true;
+	  screenInit();
+	  screenClear();
+	renderCompleteFrame = true;
 
   /* USER CODE END 2 */
 
@@ -242,11 +200,30 @@ HSEM notification */
 	while (1)
 	{
 		message = receive_message();
-		char localT[32] = "";
-		snprintf(localT,sizeof(localT),"%03d",message);
-		ssd1306_SetCursor(0, 0);
-		ssd1306_WriteString(localT, Font_7x10, White);
-		ssd1306_UpdateScreen();
+		char localT[32] = "Test";
+//		snprintf(localT,sizeof(localT),"%03d",message);
+		createEmptyFrame(false);
+//		centeredString(64, 50, (char *)localT, BLACK, WHITE, 32, Font12);
+		snprintf(localT,sizeof(localT),"R: %3.3f", receivedAnglesData->bodyAngles.Roll);
+		//			createEmptyFrame(false);
+		centeredString(64, 50, (char *)localT, BLACK, WHITE, 16, Font12);
+		//			createEmptyFrame(false);
+		memset(localT,0,32);
+		snprintf(localT,sizeof(localT),"P: %3.3f", receivedAnglesData->bodyAngles.Pitch);
+		centeredString(64, 64, (char *)localT, BLACK, WHITE, 16, Font12);
+		//			createEmptyFrame(false);
+		memset(localT,0,32);
+		snprintf(localT,sizeof(localT),"Y: %3.3f", receivedAnglesData->bodyAngles.Yaw);
+		centeredString(64, 76, (char *)localT, BLACK, WHITE, 16, Font12);
+		memset(localT,0,32);
+		updateNextFrame();
+		message = 0;
+
+		/* Send the massage to the remote CPU */
+//		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
+//		ssd1306_SetCursor(0, 0);
+//		ssd1306_WriteString(localT, Font_7x10, White);
+//		ssd1306_UpdateScreen();
 
     /* USER CODE END WHILE */
 

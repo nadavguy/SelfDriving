@@ -11,7 +11,7 @@ void LCD_1in3_test()
   
   printf("LCD_1IN3_ Init and Clear...\r\n");
 	LCD_1IN3_SetBackLight(100);
-	LCD_1IN3_Init(VERTICAL);
+	LCD_1IN3_Init(HORIZONTAL);
 	LCD_1IN3_Clear(WHITE);
   
   printf("Paint_NewImage\r\n");
@@ -30,7 +30,7 @@ void LCD_1in3_test()
 	Paint_DrawString_EN(30, 10, "123",        &Font24,  YELLOW, RED);  
 	Paint_DrawString_EN(30, 34, "ABC",        &Font24,  BLUE,   CYAN);
   Paint_DrawFloatNum (30, 58 ,987.654321,3, &Font12,  WHITE,  BLACK);
-	Paint_DrawString_CN(50,180, "Î¢Ñ©µç×Ó",   &Font24CN,WHITE,  RED);
+	Paint_DrawString_CN(50,180, "Î¢Ñ©ï¿½ï¿½ï¿½ï¿½",   &Font24CN,WHITE,  RED);
   Paint_DrawImage(gImage_1,25,70,60,60);
   
 	Paint_DrawRectangle(125, 10, 225, 58, RED     ,DOT_PIXEL_2X2,DRAW_FILL_EMPTY);

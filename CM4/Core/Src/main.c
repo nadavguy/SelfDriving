@@ -52,9 +52,13 @@
 
 /* USER CODE BEGIN PV */
 tMPU9250 chasisIMU;
-tANGLESMESSAGES sentAnglesData;
 
-uint32_t lastIMU1Measurement = 0;
+tAHRSDATA chasisIMUAHRS;
+
+uint8_t R = 0;
+
+uint32_t lastChasisIMUMeasurement = 0;
+uint32_t lastAnglesSentToCM7Time = 0;
 
 uint32_t message;
 volatile int message_received;
@@ -155,66 +159,21 @@ int main(void)
 	chasisIMU.deviceAddress = 0x68<<1;
 	chasisIMU.i2cID = hi2c2;
 	initMPU(chasisIMU);
+
+	initAHRS(&chasisIMUAHRS);
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
-	int16_t AccData[3], GyroData[3], MagData[3];
-	MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
 
-	uint8_t R = 0;
-	tAHRSDATA chasisIMUAHRS;
-	chasisIMUAHRS.q0 = 1;
-	chasisIMUAHRS.q1 = 0;
-	chasisIMUAHRS.q2 = 0;
-	chasisIMUAHRS.q3 = 0;
-	chasisIMUAHRS.sampleRate = 1/20.0;
 
 	while (1)
 	{
-		if (HAL_GetTick() - lastIMU1Measurement > 50)
-		{
-			MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);
-			chasisIMUAHRS.AccData[0] = 9.80665 * AccData[0] / 16384.0;
-			chasisIMUAHRS.AccData[1] = 9.80665 * AccData[1] / 16384.0;
-			chasisIMUAHRS.AccData[2] = 9.80665 * AccData[2] / 16384.0;
+		runAHRSCycle();
+		sendAngles(chasisIMUAHRS, chasisIMUAHRS);
 
-			chasisIMUAHRS.GyroData[0] = GyroData[0] / 131.0; // Degrees / Sec
-			chasisIMUAHRS.GyroData[1] = GyroData[1] / 131.0;
-			chasisIMUAHRS.GyroData[2] = GyroData[2] / 131.0;
 
-			chasisIMUAHRS.MagData[0] = MagData[0] * 0.6;
-			chasisIMUAHRS.MagData[1] = MagData[1] * 0.6;
-			chasisIMUAHRS.MagData[2] = MagData[2] * 0.6;
-
-			UpdateAHRS(&chasisIMUAHRS,
-					chasisIMUAHRS.GyroData[0] * AHRSIMU_DEG2RAD, chasisIMUAHRS.GyroData[1] * AHRSIMU_DEG2RAD,
-					chasisIMUAHRS.GyroData[2] * AHRSIMU_DEG2RAD,
-					chasisIMUAHRS.AccData[0], chasisIMUAHRS.AccData[1], chasisIMUAHRS.AccData[2],
-					chasisIMUAHRS.MagData[0], chasisIMUAHRS.MagData[1], chasisIMUAHRS.MagData[2]);
-			lastIMU1Measurement = HAL_GetTick();
-		}
-		sentAnglesData.opCode = 1;
-		sentAnglesData.bodyAngles.Pitch = chasisIMUAHRS.Pitch;
-		sentAnglesData.bodyAngles.Roll = chasisIMUAHRS.Roll;
-		sentAnglesData.bodyAngles.Yaw = chasisIMUAHRS.Yaw;
-		sentAnglesData.lidarAngles.Pitch = 45;
-		sentAnglesData.lidarAngles.Roll = 46;
-		sentAnglesData.lidarAngles.Yaw = 47;
-		if (R == 1)
-		{
-			status = OPENAMP_send(&rp_endpoint,&sentAnglesData, sizeof(sentAnglesData));
-		}
-		else
-		{
-			status = OPENAMP_send(&rp_endpoint,&R, sizeof(R));
-		}
-		R++;
-		if (R == 200)
-		{
-			R = 0;
-		}
-		HAL_Delay(1);
+//		HAL_Delay(1);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

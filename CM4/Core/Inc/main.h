@@ -49,7 +49,11 @@ extern "C" {
 
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
+extern uint32_t lastChasisIMUMeasurement;
+extern uint32_t lastAnglesSentToCM7Time;
+
 extern tMPU9250 chasisIMU;
+extern tAHRSDATA chasisIMUAHRS;
 //extern tRPYANGLES sentAnglesData;
 /* USER CODE END ET */
 

@@ -1,5 +1,6 @@
 
 #include "main.h"
+#include "memoryManager.h"
 #include "openamp.h"
 
 uint32_t receivedDataPointer = 0;
@@ -24,6 +25,25 @@ unsigned int receive_message(void)
 	message_received = 0;
 
 	return received_data;
+}
+
+void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
+{
+	if (HAL_GetTick() - lastAnglesSentToCM7Time > 100)
+	{
+		tANGLESMESSAGES sentAnglesData;
+
+		sentAnglesData.opCode = 1;
+		sentAnglesData.bodyAngles.Pitch = chasisAHRS.Pitch;
+		sentAnglesData.bodyAngles.Roll = chasisAHRS.Roll;
+		sentAnglesData.bodyAngles.Yaw = chasisAHRS.Yaw;
+		sentAnglesData.lidarAngles.Pitch = lidarAHRS.Pitch;
+		sentAnglesData.lidarAngles.Roll = lidarAHRS.Roll;
+		sentAnglesData.lidarAngles.Yaw = lidarAHRS.Yaw;
+
+		OPENAMP_send(&rp_endpoint,&sentAnglesData, sizeof(sentAnglesData));
+		lastAnglesSentToCM7Time = HAL_GetTick();
+	}
 }
 #endif
 

@@ -119,6 +119,7 @@ typedef enum {
 #define RED  					0xF800
 #define MAGENTA				0xF81F
 #define GREEN					0x07E0
+#define PZGREEN					0x0400
 #define CYAN 					0x7FFF
 #define YELLOW				0xFFE0
 #define BROWN					0XBC40 
@@ -219,7 +220,7 @@ void Paint_DrawTime(UWORD Xstart, UWORD Ystart, PAINT_TIME *pTime, sFONT* Font, 
 
 //pic
 void Paint_DrawImage(const unsigned char *image,UWORD Startx, UWORD Starty,UWORD Endx, UWORD Endy); 
-
+extern void Paint_DrawDeltaImage(const unsigned char *image, const unsigned char *previousImage, UWORD xStart, UWORD yStart, UWORD W_Image, UWORD H_Image);
 
 #endif
 
