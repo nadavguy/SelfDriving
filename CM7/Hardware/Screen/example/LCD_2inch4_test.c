@@ -42,7 +42,7 @@ void LCD_2in4_test()
 	Paint_DrawCircle(195,125,  25,        GREEN   ,DOT_PIXEL_2X2,DRAW_FILL_EMPTY);
 	
 	Paint_DrawImage(gImage_1,5,70,60,60);
-	updateNextFrame();
+	displayNextFrame();
 
 	DEV_Delay_ms(3000);
 	

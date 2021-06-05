@@ -1,4 +1,5 @@
 FrameHelper.c:16:6:createEmptyFrame	24	static
-FrameHelper.c:34:6:updateNextFrame	8	static
+FrameHelper.c:34:6:displayNextFrame	8	static
 FrameHelper.c:45:6:addImageToNextFrame	24	static
 FrameHelper.c:53:6:addRectangleToFrame	24	static
+FrameHelper.c:62:6:prepareNextFrame	4	static

@@ -31,7 +31,7 @@ void createEmptyFrame(bool isMenuFrame)
 	}
 }
 
-void updateNextFrame(void)
+void displayNextFrame(void)
 {
 //	LCD_1IN8_SetCursor(0, 0);
 	if (HAL_GetTick() - lastFrameDisplayed > 30)
@@ -57,4 +57,9 @@ void addRectangleToFrame(uint8_t xStart, uint8_t yStart, uint8_t xEnd, uint8_t y
 		nextFrameToDraw[(i + SCREEN_WIDTH * yStart + xStart) * 2] = (uint8_t)((Color & 0xFF00) >> 8 );
 		nextFrameToDraw[(i + SCREEN_WIDTH * yStart + xStart) * 2 + 1] = (uint8_t)((Color & 0x00FF));
 	}
+}
+
+void prepareNextFrame(void)
+{
+
 }

@@ -200,23 +200,8 @@ HSEM notification */
 	while (1)
 	{
 		message = receive_message();
-		char localT[32] = "Test";
-//		snprintf(localT,sizeof(localT),"%03d",message);
-		createEmptyFrame(false);
-//		centeredString(64, 50, (char *)localT, BLACK, WHITE, 32, Font12);
-		snprintf(localT,sizeof(localT),"R: %3.3f", receivedAnglesData->bodyAngles.Roll);
-		//			createEmptyFrame(false);
-		centeredString(64, 50, (char *)localT, BLACK, WHITE, 16, Font12);
-		//			createEmptyFrame(false);
-		memset(localT,0,32);
-		snprintf(localT,sizeof(localT),"P: %3.3f", receivedAnglesData->bodyAngles.Pitch);
-		centeredString(64, 64, (char *)localT, BLACK, WHITE, 16, Font12);
-		//			createEmptyFrame(false);
-		memset(localT,0,32);
-		snprintf(localT,sizeof(localT),"Y: %3.3f", receivedAnglesData->bodyAngles.Yaw);
-		centeredString(64, 76, (char *)localT, BLACK, WHITE, 16, Font12);
-		memset(localT,0,32);
-		updateNextFrame();
+		screenUpdate(true);
+		displayNextFrame();
 		message = 0;
 
 		/* Send the massage to the remote CPU */

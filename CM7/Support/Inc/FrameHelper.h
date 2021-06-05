@@ -21,9 +21,9 @@ extern uint8_t numberOfDisplayedSafeAirIcons;
 extern uint32_t LCDArraySize;
 
 extern void createEmptyFrame(bool isMenuFrame);
-extern void updateNextFrame(void);
+extern void displayNextFrame(void);
 extern void addImageToNextFrame(const unsigned char *image, uint8_t Height, uint8_t Width, uint8_t Xstart, uint8_t Ystart);
 extern void addRectangleToFrame(uint8_t xStart, uint8_t yStart, uint8_t xEnd, uint8_t yEnd, uint16_t Color);
-
+extern void prepareNextFrame(void);
 
 #endif /* INC_FRAMEHELPER_H_ */
