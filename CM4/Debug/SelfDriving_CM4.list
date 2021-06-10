@@ -35,11 +35,11 @@ Idx Name          Size      VMA       LMA       File off  Algn
                   CONTENTS, READONLY, DEBUGGING, OCTETS
  15 .debug_line   00023fac  00000000  00000000  000a4ba4  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 16 .debug_str    00185c14  00000000  00000000  000c8b50  2**0
+ 16 .debug_str    00185c19  00000000  00000000  000c8b50  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 17 .comment      00000053  00000000  00000000  0024e764  2**0
+ 17 .comment      00000053  00000000  00000000  0024e769  2**0
                   CONTENTS, READONLY
- 18 .debug_frame  00006d94  00000000  00000000  0024e7b8  2**2
+ 18 .debug_frame  00006d94  00000000  00000000  0024e7bc  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 
 Disassembly of section .text:
@@ -1173,9 +1173,9 @@ unsigned int receive_message(void)
  8100ec8:	1000045c 	.word	0x1000045c
  8100ecc:	100003c8 	.word	0x100003c8
 
-08100ed0 <sendAngles>:
+08100ed0 <sendAnglesToCM7>:
 
-void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
+void sendAnglesToCM7(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
 {
  8100ed0:	b084      	sub	sp, #16
  8100ed2:	b580      	push	{r7, lr}
@@ -1186,11 +1186,11 @@ void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
 	if (HAL_GetTick() - lastAnglesSentToCM7Time > 100)
  8100ee0:	f000 fd16 	bl	8101910 <HAL_GetTick>
  8100ee4:	4602      	mov	r2, r0
- 8100ee6:	4b12      	ldr	r3, [pc, #72]	; (8100f30 <sendAngles+0x60>)
+ 8100ee6:	4b12      	ldr	r3, [pc, #72]	; (8100f30 <sendAnglesToCM7+0x60>)
  8100ee8:	681b      	ldr	r3, [r3, #0]
  8100eea:	1ad3      	subs	r3, r2, r3
  8100eec:	2b64      	cmp	r3, #100	; 0x64
- 8100eee:	d918      	bls.n	8100f22 <sendAngles+0x52>
+ 8100eee:	d918      	bls.n	8100f22 <sendAnglesToCM7+0x52>
 	{
 		tANGLESMESSAGES sentAnglesData;
 
@@ -1220,12 +1220,12 @@ void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
  8100f0c:	1d3b      	adds	r3, r7, #4
  8100f0e:	221c      	movs	r2, #28
  8100f10:	4619      	mov	r1, r3
- 8100f12:	4808      	ldr	r0, [pc, #32]	; (8100f34 <sendAngles+0x64>)
+ 8100f12:	4808      	ldr	r0, [pc, #32]	; (8100f34 <sendAnglesToCM7+0x64>)
  8100f14:	f7ff ff86 	bl	8100e24 <rpmsg_send>
 		lastAnglesSentToCM7Time = HAL_GetTick();
  8100f18:	f000 fcfa 	bl	8101910 <HAL_GetTick>
  8100f1c:	4603      	mov	r3, r0
- 8100f1e:	4a04      	ldr	r2, [pc, #16]	; (8100f30 <sendAngles+0x60>)
+ 8100f1e:	4a04      	ldr	r2, [pc, #16]	; (8100f30 <sendAnglesToCM7+0x60>)
  8100f20:	6013      	str	r3, [r2, #0]
 	}
 }
@@ -1820,7 +1820,7 @@ int main(void)
 	{
 		runAHRSCycle();
  81012c0:	f006 fdc2 	bl	8107e48 <runAHRSCycle>
-		sendAngles(chasisIMUAHRS, chasisIMUAHRS);
+		sendAnglesToCM7(chasisIMUAHRS, chasisIMUAHRS);
  81012c4:	4e15      	ldr	r6, [pc, #84]	; (810131c <main+0x188>)
  81012c6:	4a15      	ldr	r2, [pc, #84]	; (810131c <main+0x188>)
  81012c8:	ab0f      	add	r3, sp, #60	; 0x3c
@@ -1839,7 +1839,7 @@ int main(void)
  81012e6:	e894 0007 	ldmia.w	r4, {r0, r1, r2}
  81012ea:	e885 0007 	stmia.w	r5, {r0, r1, r2}
  81012ee:	e896 000f 	ldmia.w	r6, {r0, r1, r2, r3}
- 81012f2:	f7ff fded 	bl	8100ed0 <sendAngles>
+ 81012f2:	f7ff fded 	bl	8100ed0 <sendAnglesToCM7>
 		runAHRSCycle();
  81012f6:	e7e3      	b.n	81012c0 <main+0x12c>
  81012f8:	58024400 	.word	0x58024400

@@ -65,6 +65,9 @@ volatile int message_received;
 volatile int service_created;
 volatile unsigned int received_data;
 struct rpmsg_endpoint rp_endpoint;
+
+float versionID = 1.000;
+float buildID = 1.000;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -177,8 +180,8 @@ HSEM notification */
 	{
 		/* Receive the massage from the remote CPU */
 		message = receive_message();
-		char localT[32] = "";
-		snprintf(localT,sizeof(localT),"%d",message);
+//		char localT[32] = "";
+//		snprintf(localT,sizeof(localT),"%d",message);
 //		ssd1306_SetCursor(0, 0);
 //		ssd1306_WriteString(localT, Font_7x10, White);
 		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
@@ -188,9 +191,9 @@ HSEM notification */
 		}
 	}
 
-//	isPortrait = true;
-	  screenInit();
-	  screenClear();
+	//	isPortrait = true;
+	screenInit();
+	screenClear();
 	renderCompleteFrame = true;
 
   /* USER CODE END 2 */

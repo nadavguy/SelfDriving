@@ -78,6 +78,10 @@ uint32_t lastBatteryRefresh = 0;
 uint32_t lastBITStatusChange = 0;
 uint32_t lastFrameDisplayed = 0;
 uint32_t lastFullFrameDisplayed = 0 ;
+uint32_t lastLidarBoresight = 0;
+
+float lidarBoresightAngle = 0;
+float currentLidarAngle = 0;
 
 tUINT8_ITEM uint8Item;
 tUINT16_ITEM uint16Item;
@@ -126,17 +130,17 @@ void screenInit(void)
 	{
 		Paint_DrawImage(gImage_Rain, 0, 0, 128, 128);
 		Paint_DrawString_EN(1, 130, "Version", &Font12, WHITE,  BLACK);
-		Paint_DrawFloatNum (1, 142 ,1.000, 2,  &Font12, BLACK, WHITE);
+		Paint_DrawFloatNum (1, 142 , versionID, 2,  &Font12, BLACK, WHITE);
 		Paint_DrawString_EN(70, 130, "BuildID", &Font12, WHITE,  BLACK);
-		Paint_DrawFloatNum (70, 142 ,1.100, 2,  &Font12, BLACK, WHITE);
+		Paint_DrawFloatNum (70, 142 , buildID, 2,  &Font12, BLACK, WHITE);
 	}
 	else
 	{
 		Paint_DrawImage(gImage_Rain, 16, 0, 128, 128);
 		Paint_DrawString_EN(1, 98, "Version", &Font12, WHITE,  BLACK);
-		Paint_DrawFloatNum (1, 110 ,1.000, 2,  &Font12, BLACK, WHITE);
+		Paint_DrawFloatNum (1, 110 , versionID, 2,  &Font12, BLACK, WHITE);
 		Paint_DrawString_EN(104, 98, "BuildID", &Font12, WHITE,  BLACK);
-		Paint_DrawFloatNum (124, 110 ,1.200, 2,  &Font12, BLACK, WHITE);
+		Paint_DrawFloatNum (124, 110 , buildID, 2,  &Font12, BLACK, WHITE);
 	}
 
 
@@ -184,21 +188,33 @@ void centeredString(UWORD XCenterstart, UWORD Ystart, const char * pString, uint
 void showAngles(void)
 {
 	char localT[32] = "";
-//		snprintf(localT,sizeof(localT),"%03d",message);
-	createEmptyFrame(false);
-//		centeredString(64, 50, (char *)localT, BLACK, WHITE, 32, Font12);
-	snprintf(localT,sizeof(localT),"R: %3.3f", receivedAnglesData->bodyAngles.Roll);
-	//			createEmptyFrame(false);
-	centeredString(64, 50, (char *)localT, BLACK, WHITE, 16, Font8);
-	//			createEmptyFrame(false);
+
+	snprintf(localT,sizeof(localT),"R: %04.3f", receivedAnglesData->bodyAngles.Roll);
+	Paint_DrawString_EN(VerticalRollChasisX, VerticalRollChasisY, (char *)localT, &Font8, WHITE, BLACK);
+
 	memset(localT,0,32);
-	snprintf(localT,sizeof(localT),"P: %3.3f", receivedAnglesData->bodyAngles.Pitch);
-	centeredString(64, 64, (char *)localT, BLACK, WHITE, 16, Font8);
-	//			createEmptyFrame(false);
+	snprintf(localT,sizeof(localT),"P: %04.3f", receivedAnglesData->bodyAngles.Pitch);
+	Paint_DrawString_EN(VerticalPitchChasisX, VerticalPitchChasisY, (char *)localT, &Font8, WHITE, BLACK);
+
 	memset(localT,0,32);
-	snprintf(localT,sizeof(localT),"Y: %3.3f", receivedAnglesData->bodyAngles.Yaw);
-	centeredString(64, 76, (char *)localT, BLACK, WHITE, 16, Font8);
+	snprintf(localT,sizeof(localT),"Y: %04.3f", receivedAnglesData->bodyAngles.Yaw);
+//	Paint_DrawString_EN(VerticalYawChasisX, VerticalYawChasisY, (char *)localT, &Font8, WHITE, BLACK);
 	memset(localT,0,32);
+}
+
+void showLIDAR(void)
+{
+	Paint_DrawCircle(  lidarCenterX, lidarCenterY, 50, BLUE, DOT_PIXEL_2X2, DRAW_FILL_EMPTY );
+	Paint_DrawCircle(  lidarCenterX, lidarCenterY, 1, RED, DOT_PIXEL_2X2, DRAW_FILL_FULL );
+
+	if (HAL_GetTick() - lastLidarBoresight >= 40)
+	{
+		currentLidarAngle = (float)((uint32_t)(1.8 * (HAL_GetTick() - lastLidarBoresight)) % (360));
+		lastLidarBoresight = HAL_GetTick();
+	}
+	Paint_DrawLine(lidarCenterX, lidarCenterY, lidarCenterX + lidarRadius * cosf(receivedAnglesData->bodyAngles.Yaw * AHRSIMU_DEG2RAD),
+			lidarCenterY + lidarRadius * sinf(receivedAnglesData->bodyAngles.Yaw * AHRSIMU_DEG2RAD), DARKBLUE, DOT_PIXEL_1X1, LINE_STYLE_SOLID);
+
 }
 
 
@@ -210,7 +226,9 @@ void screenUpdate(bool drawDeltaImage)
 //	setIconPositionOnScreen();
 	if ( (!isMenuDisplayed) && (!isPopupDisplayed) )
 	{
+		createEmptyFrame(false);
 		showAngles();
+		showLIDAR();
 	}
 	else if (isMenuDisplayed)
 	{
@@ -257,11 +275,11 @@ void drawMenu(bool clearScreen, MENUDRAWType howToDraw)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
 	}
 
 	if (howToDraw == FULL)
@@ -356,13 +374,13 @@ void drawPopup(void)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
-		PopupRectangleHeight = HorizontalPopupRectangleHeight;
-		QuestionRectangleHeight = HorizontalQuestionRectangleHeight;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		PopupRectangleHeight = HorizontalPopupRectangleHeight;
+//		QuestionRectangleHeight = HorizontalQuestionRectangleHeight;
 	}
 
 	isPopupDisplayed = true;
@@ -458,8 +476,6 @@ void setIconPositionOnScreen(void)
 		BatteryX = VerticalBatteryX;
 		BatteryY = VerticalBatteryY;
 
-		AutoPilotY = VerticalAutoPilotY;
-
 		SystemStatusTextX = VerticalSystemStatusTextX;
 		SystemStatusTextY = VerticalSystemStatusTextY;
 
@@ -470,33 +486,33 @@ void setIconPositionOnScreen(void)
 		WarningTextY = VerticalWarningTextY;
 
 
-		SafeAirBatteryX = (numberOfDisplayedSafeAirIcons /2 - 1 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;//VerticalSafeAirBatteryX;
-		SafeAirBatteryY = VerticalSafeAirBatteryY;
-		TriggerModeX = (numberOfDisplayedSafeAirIcons /2 - 2 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;
-		TriggerModeY = VerticalTriggerModeY;
-		PlatfomTypeX = (numberOfDisplayedSafeAirIcons /2 - 3 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;
-		PlatfomTypeY = VerticalPltfomTypeY;
+//		SafeAirBatteryX = (numberOfDisplayedSafeAirIcons /2 - 1 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;//VerticalSafeAirBatteryX;
+//		SafeAirBatteryY = VerticalSafeAirBatteryY;
+//		TriggerModeX = (numberOfDisplayedSafeAirIcons /2 - 2 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;
+//		TriggerModeY = VerticalTriggerModeY;
+//		PlatfomTypeX = (numberOfDisplayedSafeAirIcons /2 - 3 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;
+//		PlatfomTypeY = VerticalPltfomTypeY;
 		AutoPilotX = (numberOfDisplayedSafeAirIcons /2 - 4 ) * safeAirBarIconWidth + VerticalDisplayCenterWidth;
 		AutoPilotY = VerticalAutoPilotY;
 	}
 	else
 	{
-		PlatfomTypeX = HorizontalPltfomTypeX;
-		PlatfomTypeY = HorizontalPltfomTypeY;
-		AutoPilotX = HorizontalAutoPilotX;
-		AutoPilotY = HorizontalAutoPilotY;
-		TBSSignalX = HorizontalTBSSignalX;
-		TBSSignalY = HorizontalTBSSignalY;
-		BluetoothX = HorizontalBluetoothX;
-		BluetoothY = HorizontalBluetoothY;
-		TriggerModeX = HorizontalTriggerModeX;
-		TriggerModeY = HorizontalTriggerModeY;
-		BatteryX = HorizontalBatteryX;
-		BatteryY = HorizontalBatteryY;
-		SystemTextX = HorizontalSystemTextX;
-		SystemTextY = HorizontalSystemTextY;
-		SafeAirBatteryX = HorizontalSafeAirBatteryTextX;
-		SafeAirBatteryY = HorizontalSafeAirBatteryTextY;
+//		PlatfomTypeX = HorizontalPltfomTypeX;
+//		PlatfomTypeY = HorizontalPltfomTypeY;
+//		AutoPilotX = HorizontalAutoPilotX;
+//		AutoPilotY = HorizontalAutoPilotY;
+//		TBSSignalX = HorizontalTBSSignalX;
+//		TBSSignalY = HorizontalTBSSignalY;
+//		BluetoothX = HorizontalBluetoothX;
+//		BluetoothY = HorizontalBluetoothY;
+//		TriggerModeX = HorizontalTriggerModeX;
+//		TriggerModeY = HorizontalTriggerModeY;
+//		BatteryX = HorizontalBatteryX;
+//		BatteryY = HorizontalBatteryY;
+//		SystemTextX = HorizontalSystemTextX;
+//		SystemTextY = HorizontalSystemTextY;
+//		SafeAirBatteryX = HorizontalSafeAirBatteryTextX;
+//		SafeAirBatteryY = HorizontalSafeAirBatteryTextY;
 
 	}
 }

@@ -27,7 +27,7 @@ unsigned int receive_message(void)
 	return received_data;
 }
 
-void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
+void sendAnglesToCM7(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS)
 {
 	if (HAL_GetTick() - lastAnglesSentToCM7Time > 100)
 	{

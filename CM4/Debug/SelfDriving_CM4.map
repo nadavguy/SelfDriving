@@ -10484,9 +10484,9 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .text.receive_message
                 0x0000000008100ea8       0x28 Common/Src/memoryManager.o
                 0x0000000008100ea8                receive_message
- .text.sendAngles
+ .text.sendAnglesToCM7
                 0x0000000008100ed0       0x68 Common/Src/memoryManager.o
-                0x0000000008100ed0                sendAngles
+                0x0000000008100ed0                sendAnglesToCM7
  .text.parseRecievedMessages
                 0x0000000008100f38       0x16 Common/Src/messagesParser.o
                 0x0000000008100f38                parseRecievedMessages
@@ -12478,88 +12478,88 @@ LOAD c:/st/stm32cubeide_1.6.1/stm32cubeide/plugins/com.st.stm32cube.ide.mcu.exte
  .debug_line    0x0000000000022859      0xcb8 OPENAMP/openamp.o
  .debug_line    0x0000000000023511      0xa9b OPENAMP/rsc_table.o
 
-.debug_str      0x0000000000000000   0x185c14
- .debug_str     0x0000000000000000   0x17d632 Common/Src/memoryManager.o
-                                     0x17dd2a (size before relaxing)
- .debug_str     0x000000000017d632       0x6a Common/Src/messagesParser.o
+.debug_str      0x0000000000000000   0x185c19
+ .debug_str     0x0000000000000000   0x17d637 Common/Src/memoryManager.o
+                                     0x17dd2f (size before relaxing)
+ .debug_str     0x000000000017d637       0x6a Common/Src/messagesParser.o
                                      0x17a050 (size before relaxing)
- .debug_str     0x000000000017d69c      0x371 Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o
+ .debug_str     0x000000000017d6a1      0x371 Common/Src/system_stm32h7xx_dualcore_boot_cm4_cm7.o
                                      0x178aad (size before relaxing)
- .debug_str     0x000000000017da0d       0x33 Core/Src/gpio.o
+ .debug_str     0x000000000017da12       0x33 Core/Src/gpio.o
                                      0x17a235 (size before relaxing)
- .debug_str     0x000000000017da40      0xbae Core/Src/i2c.o
+ .debug_str     0x000000000017da45      0xbae Core/Src/i2c.o
                                      0x17ae71 (size before relaxing)
- .debug_str     0x000000000017e5ee      0x32f Core/Src/main.o
+ .debug_str     0x000000000017e5f3      0x32f Core/Src/main.o
                                      0x17eaa4 (size before relaxing)
- .debug_str     0x000000000017e91d       0x4b Core/Src/spi.o
+ .debug_str     0x000000000017e922       0x4b Core/Src/spi.o
                                      0x17a8bd (size before relaxing)
- .debug_str     0x000000000017e968       0x2c Core/Src/stm32h7xx_hal_msp.o
+ .debug_str     0x000000000017e96d       0x2c Core/Src/stm32h7xx_hal_msp.o
                                      0x17aa94 (size before relaxing)
- .debug_str     0x000000000017e994      0x109 Core/Src/stm32h7xx_it.o
+ .debug_str     0x000000000017e999      0x109 Core/Src/stm32h7xx_it.o
                                      0x17a0ee (size before relaxing)
- .debug_str     0x000000000017ea9d     0x11ea Core/Src/syscalls.o
+ .debug_str     0x000000000017eaa2     0x11ea Core/Src/syscalls.o
                                        0x8f4c (size before relaxing)
- .debug_str     0x000000000017fc87       0x6b Core/Src/sysmem.o
+ .debug_str     0x000000000017fc8c       0x6b Core/Src/sysmem.o
                                        0x631f (size before relaxing)
- .debug_str     0x000000000017fcf2       0x36 Core/Startup/startup_stm32h745zitx.o
+ .debug_str     0x000000000017fcf7       0x36 Core/Startup/startup_stm32h745zitx.o
                                          0x78 (size before relaxing)
- .debug_str     0x000000000017fd28      0x9f1 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
+ .debug_str     0x000000000017fd2d      0x9f1 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal.o
                                      0x179d0f (size before relaxing)
- .debug_str     0x0000000000180719      0x3d9 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
+ .debug_str     0x000000000018071e      0x3d9 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_cortex.o
                                      0x179562 (size before relaxing)
- .debug_str     0x0000000000180af2      0x285 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
+ .debug_str     0x0000000000180af7      0x285 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_gpio.o
                                      0x178de7 (size before relaxing)
- .debug_str     0x0000000000180d77      0x1f6 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o
+ .debug_str     0x0000000000180d7c      0x1f6 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_hsem.o
                                      0x1789b1 (size before relaxing)
- .debug_str     0x0000000000180f6d      0xdcb Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
+ .debug_str     0x0000000000180f72      0xdcb Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c.o
                                      0x179c0b (size before relaxing)
- .debug_str     0x0000000000181d38       0xed Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
+ .debug_str     0x0000000000181d3d       0xed Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_i2c_ex.o
                                      0x1790ac (size before relaxing)
- .debug_str     0x0000000000181e25      0x6f0 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
+ .debug_str     0x0000000000181e2a      0x6f0 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_pwr_ex.o
                                      0x179136 (size before relaxing)
- .debug_str     0x0000000000182515      0x553 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
+ .debug_str     0x000000000018251a      0x553 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc.o
                                      0x179013 (size before relaxing)
- .debug_str     0x0000000000182a68      0x6ac Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
+ .debug_str     0x0000000000182a6d      0x6ac Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_rcc_ex.o
                                      0x17952d (size before relaxing)
- .debug_str     0x0000000000183114      0x567 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_spi.o
+ .debug_str     0x0000000000183119      0x567 Drivers/STM32H7xx_HAL_Driver/stm32h7xx_hal_spi.o
                                      0x1792f0 (size before relaxing)
- .debug_str     0x000000000018367b      0x7a3 Hardware/MPU9250/MPU9250.o
+ .debug_str     0x0000000000183680      0x7a3 Hardware/MPU9250/MPU9250.o
                                      0x17ab09 (size before relaxing)
- .debug_str     0x0000000000183e1e      0x3d9 Middlewares/Third_Party/OpenAMP/device.o
+ .debug_str     0x0000000000183e23      0x3d9 Middlewares/Third_Party/OpenAMP/device.o
                                        0xb2e8 (size before relaxing)
- .debug_str     0x00000000001841f7       0xa0 Middlewares/Third_Party/OpenAMP/generic_device.o
+ .debug_str     0x00000000001841fc       0xa0 Middlewares/Third_Party/OpenAMP/generic_device.o
                                        0xb110 (size before relaxing)
- .debug_str     0x0000000000184297       0xb5 Middlewares/Third_Party/OpenAMP/generic_init.o
+ .debug_str     0x000000000018429c       0xb5 Middlewares/Third_Party/OpenAMP/generic_init.o
                                        0xb12c (size before relaxing)
- .debug_str     0x000000000018434c       0x9c Middlewares/Third_Party/OpenAMP/generic_io.o
+ .debug_str     0x0000000000184351       0x9c Middlewares/Third_Party/OpenAMP/generic_io.o
                                        0xaa8a (size before relaxing)
- .debug_str     0x00000000001843e8       0x84 Middlewares/Third_Party/OpenAMP/init.o
+ .debug_str     0x00000000001843ed       0x84 Middlewares/Third_Party/OpenAMP/init.o
                                        0x880b (size before relaxing)
- .debug_str     0x000000000018446c       0xd3 Middlewares/Third_Party/OpenAMP/io.o
+ .debug_str     0x0000000000184471       0xd3 Middlewares/Third_Party/OpenAMP/io.o
                                        0xab02 (size before relaxing)
- .debug_str     0x000000000018453f       0xe0 Middlewares/Third_Party/OpenAMP/log.o
+ .debug_str     0x0000000000184544       0xe0 Middlewares/Third_Party/OpenAMP/log.o
                                        0x8841 (size before relaxing)
- .debug_str     0x000000000018461f      0x501 Middlewares/Third_Party/OpenAMP/remoteproc_virtio.o
+ .debug_str     0x0000000000184624      0x501 Middlewares/Third_Party/OpenAMP/remoteproc_virtio.o
                                        0xc01e (size before relaxing)
- .debug_str     0x0000000000184b20      0x2ff Middlewares/Third_Party/OpenAMP/rpmsg.o
+ .debug_str     0x0000000000184b25      0x2ff Middlewares/Third_Party/OpenAMP/rpmsg.o
                                        0x92b1 (size before relaxing)
- .debug_str     0x0000000000184e1f      0x47d Middlewares/Third_Party/OpenAMP/rpmsg_virtio.o
+ .debug_str     0x0000000000184e24      0x47d Middlewares/Third_Party/OpenAMP/rpmsg_virtio.o
                                        0xc3c7 (size before relaxing)
- .debug_str     0x000000000018529c      0x11b Middlewares/Third_Party/OpenAMP/sys.o
+ .debug_str     0x00000000001852a1      0x11b Middlewares/Third_Party/OpenAMP/sys.o
                                        0xa9fa (size before relaxing)
- .debug_str     0x00000000001853b7      0x11a Middlewares/Third_Party/OpenAMP/virtio.o
+ .debug_str     0x00000000001853bc      0x11a Middlewares/Third_Party/OpenAMP/virtio.o
                                        0xb511 (size before relaxing)
- .debug_str     0x00000000001854d1      0x363 Middlewares/Third_Party/OpenAMP/virtqueue.o
+ .debug_str     0x00000000001854d6      0x363 Middlewares/Third_Party/OpenAMP/virtqueue.o
                                        0xb3a5 (size before relaxing)
- .debug_str     0x0000000000185834      0x111 Modules/Src/AHRS.o
+ .debug_str     0x0000000000185839      0x111 Modules/Src/AHRS.o
                                      0x17a10c (size before relaxing)
- .debug_str     0x0000000000185945       0x22 Modules/Src/ImuAgent.o
+ .debug_str     0x000000000018594a       0x22 Modules/Src/ImuAgent.o
                                      0x17a01c (size before relaxing)
- .debug_str     0x0000000000185967       0x66 OPENAMP/mbox_hsem.o
+ .debug_str     0x000000000018596c       0x66 OPENAMP/mbox_hsem.o
                                      0x17e0d3 (size before relaxing)
- .debug_str     0x00000000001859cd      0x188 OPENAMP/openamp.o
+ .debug_str     0x00000000001859d2      0x188 OPENAMP/openamp.o
                                        0xc583 (size before relaxing)
- .debug_str     0x0000000000185b55       0xbf OPENAMP/rsc_table.o
+ .debug_str     0x0000000000185b5a       0xbf OPENAMP/rsc_table.o
                                        0xbeed (size before relaxing)
 
 .comment        0x0000000000000000       0x53

@@ -34,7 +34,7 @@ extern unsigned int receive_message(void);
 extern void service_destroy_cb(struct rpmsg_endpoint *ept);
 extern void new_service_cb(struct rpmsg_device *rdev, const char *name, uint32_t dest);
 #ifdef CORE_CM4
-extern void sendAngles(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS);
+extern void sendAnglesToCM7(tAHRSDATA chasisAHRS, tAHRSDATA lidarAHRS);
 #endif
 
 #endif /* INC_IMUAGENT_H_ */

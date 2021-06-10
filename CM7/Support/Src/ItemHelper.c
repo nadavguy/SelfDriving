@@ -35,11 +35,11 @@ void updateUint8Item(MENUDRAWType howToDraw)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
 	}
 
 	for (int i = 0; i < uint8Item.numberOfItemsInPage ; i++)
@@ -328,11 +328,11 @@ void updateUint16Item(MENUDRAWType howToDraw)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
 	}
 
 	for (int i = 0; i < uint16Item.numberOfItemsInPage ; i++)
@@ -646,11 +646,11 @@ void updateUint32Item(MENUDRAWType howToDraw)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
 	}
 
 	for (int i = 0; i < uint32Item.numberOfItemsInPage ; i++)
@@ -940,11 +940,11 @@ void updateStringItem(MENUDRAWType howToDraw)
 	}
 	else
 	{
-		MenuRectangleStartX = HorizontalMenuRectangleStartX;
-		MenuRectangleStartY = HorizontalMenuRectangleStartY;
-		MenuRectangleHeight = HorizontalMenuRectangleHeight;
-		MenuRectangleWidth = HorizontalMenuRectangleWidth;
-		DisplayCenterWidth = HorizontalDisplayCenterWidth;
+//		MenuRectangleStartX = HorizontalMenuRectangleStartX;
+//		MenuRectangleStartY = HorizontalMenuRectangleStartY;
+//		MenuRectangleHeight = HorizontalMenuRectangleHeight;
+//		MenuRectangleWidth = HorizontalMenuRectangleWidth;
+//		DisplayCenterWidth = HorizontalDisplayCenterWidth;
 	}
 
 	for (int i = 0; i < stringItem.numberOfItemsInPage ; i++)

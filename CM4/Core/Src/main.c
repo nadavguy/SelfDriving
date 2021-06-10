@@ -170,7 +170,7 @@ int main(void)
 	while (1)
 	{
 		runAHRSCycle();
-		sendAngles(chasisIMUAHRS, chasisIMUAHRS);
+		sendAnglesToCM7(chasisIMUAHRS, chasisIMUAHRS);
 
 
 //		HAL_Delay(1);

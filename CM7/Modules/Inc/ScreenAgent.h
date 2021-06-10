@@ -16,77 +16,77 @@
 #define safeAirBarIconWidth 30
 #define safeAirBarIconHeight 30
 
-#define HorizontalDisplayCenterWidth 80
-#define HorizontalDisplayCenterHeight 64
-
-#define HorizontalLogoX 0
-#define HorizontalLogoY 0
-
-#define HorizontalPltfomTypeX 1
-#define HorizontalPltfomTypeY 0
-
-#define HorizontalAutoPilotX 1 + 26
-#define HorizontalAutoPilotY HorizontalPltfomTypeY
-
-#define HorizontalBluetoothX 1 + 52
-#define HorizontalBluetoothY 0
-
-#define HorizontalTriggerModeX 1 + 78
-#define HorizontalTriggerModeY HorizontalPltfomTypeY
-
-#define HorizontalTBSSignalX 1 + 106
-#define HorizontalTBSSignalY HorizontalPltfomTypeY
-
-#define HorizontalBatteryX 1 + 132
-#define HorizontalBatteryY HorizontalPltfomTypeY
-
-#define HorizontalSystemTextX 80
-#define HorizontalSystemTextY 32
-
-#define HorizontalParachute1X 0
-#define HorizontalParachute1Y 48
-
-#define HorizontalParachute2X 136
-#define HorizontalParachute2Y HorizontalParachute1Y
-
-#define HorizontalSystemStatusTextX 80
-#define HorizontalSystemStatusTextY HorizontalParachute1Y + 8
-
-#define HorizontalWarningIconX 1
-#define HorizontalWarningIconY 80
-
-#define HorizontalWarningTextX HorizontalWarningIconX + 24
-#define HorizontalWarningTextY HorizontalWarningIconY + 8
-
-#define HorizontalSafeAirLogo599IconX 1
-#define HorizontalSafeAirLogo599IconY 110
-
-#define HorizontalSafeAirLogo7411IconX 1
-#define HorizontalSafeAirLogo7411IconY 108
-
-#define HorizontalSafeAirBatteryIconX 75
-#define HorizontalSafeAirBatteryIconY 101
-
-#define HorizontalSafeAirBatteryTextX 78
-#define HorizontalSafeAirBatteryTextY 120
-
-#define HorizontalAltitudeIconX 106
-#define HorizontalAltitudeIconY HorizontalSafeAirBatteryIconY
-
-#define HorizontalAltitudeText1X HorizontalAltitudeIconX - 5 + 24
-#define HorizontalAltitudeText1Y HorizontalSafeAirBatteryIconY + 2
-
-#define HorizontalAltitudeText2X HorizontalAltitudeIconX - 5 + 24
-#define HorizontalAltitudeText2Y HorizontalSafeAirBatteryIconY + 2 + 12
-
-#define HorizontalMenuRectangleStartX 24
-#define HorizontalMenuRectangleStartY 12
-
-#define HorizontalMenuRectangleWidth 114
-#define HorizontalMenuRectangleHeight 14
-
-#define HorizontalQuestionRectangleHeight 86
-#define HorizontalPopupRectangleHeight HorizontalQuestionRectangleHeight + HorizontalMenuRectangleHeight
+//#define HorizontalDisplayCenterWidth 80
+//#define HorizontalDisplayCenterHeight 64
+//
+//#define HorizontalLogoX 0
+//#define HorizontalLogoY 0
+//
+//#define HorizontalPltfomTypeX 1
+//#define HorizontalPltfomTypeY 0
+//
+//#define HorizontalAutoPilotX 1 + 26
+//#define HorizontalAutoPilotY HorizontalPltfomTypeY
+//
+//#define HorizontalBluetoothX 1 + 52
+//#define HorizontalBluetoothY 0
+//
+//#define HorizontalTriggerModeX 1 + 78
+//#define HorizontalTriggerModeY HorizontalPltfomTypeY
+//
+//#define HorizontalTBSSignalX 1 + 106
+//#define HorizontalTBSSignalY HorizontalPltfomTypeY
+//
+//#define HorizontalBatteryX 1 + 132
+//#define HorizontalBatteryY HorizontalPltfomTypeY
+//
+//#define HorizontalSystemTextX 80
+//#define HorizontalSystemTextY 32
+//
+//#define HorizontalParachute1X 0
+//#define HorizontalParachute1Y 48
+//
+//#define HorizontalParachute2X 136
+//#define HorizontalParachute2Y HorizontalParachute1Y
+//
+//#define HorizontalSystemStatusTextX 80
+//#define HorizontalSystemStatusTextY HorizontalParachute1Y + 8
+//
+//#define HorizontalWarningIconX 1
+//#define HorizontalWarningIconY 80
+//
+//#define HorizontalWarningTextX HorizontalWarningIconX + 24
+//#define HorizontalWarningTextY HorizontalWarningIconY + 8
+//
+//#define HorizontalSafeAirLogo599IconX 1
+//#define HorizontalSafeAirLogo599IconY 110
+//
+//#define HorizontalSafeAirLogo7411IconX 1
+//#define HorizontalSafeAirLogo7411IconY 108
+//
+//#define HorizontalSafeAirBatteryIconX 75
+//#define HorizontalSafeAirBatteryIconY 101
+//
+//#define HorizontalSafeAirBatteryTextX 78
+//#define HorizontalSafeAirBatteryTextY 120
+//
+//#define HorizontalAltitudeIconX 106
+//#define HorizontalAltitudeIconY HorizontalSafeAirBatteryIconY
+//
+//#define HorizontalAltitudeText1X HorizontalAltitudeIconX - 5 + 24
+//#define HorizontalAltitudeText1Y HorizontalSafeAirBatteryIconY + 2
+//
+//#define HorizontalAltitudeText2X HorizontalAltitudeIconX - 5 + 24
+//#define HorizontalAltitudeText2Y HorizontalSafeAirBatteryIconY + 2 + 12
+//
+//#define HorizontalMenuRectangleStartX 24
+//#define HorizontalMenuRectangleStartY 12
+//
+//#define HorizontalMenuRectangleWidth 114
+//#define HorizontalMenuRectangleHeight 14
+//
+//#define HorizontalQuestionRectangleHeight 86
+//#define HorizontalPopupRectangleHeight HorizontalQuestionRectangleHeight + HorizontalMenuRectangleHeight
 
 
 
@@ -122,7 +122,7 @@
 #define VerticalTriggerModeY VerticalSafeAirBatteryY
 
 #define VerticalSystemTextX VerticalDisplayCenterWidth
-#define VerticalSystemTextY 28
+#define VerticalSystemTextY 110
 
 #define VerticalParachute1X 0
 #define VerticalParachute1Y 48
@@ -134,10 +134,10 @@
 #define VerticalSystemStatusTextY 47
 
 #define VerticalWarningIconX 1
-#define VerticalWarningIconY 80
+#define VerticalWarningIconY 90
 
 #define VerticalWarningTextX VerticalDisplayCenterWidth
-#define VerticalWarningTextY 70
+#define VerticalWarningTextY 100
 
 #define VerticalSafeAirLogo599IconX 1
 #define VerticalSafeAirLogo599IconY 110
@@ -165,6 +165,21 @@
 
 #define VerticalQuestionRectangleHeight 86
 #define VerticalPopupRectangleHeight VerticalQuestionRectangleHeight + VerticalMenuRectangleHeight
+
+#define VerticalRollChasisX 2
+#define VerticalRollChasisY 140
+
+#define VerticalPitchChasisX 68
+#define VerticalPitchChasisY 140
+
+#define VerticalYawChasisX 90
+#define VerticalYawChasisY 140
+
+#define lidarRadius 50
+
+#define lidarCenterX 64
+#define lidarCenterY 24+lidarRadius+2
+
 
 typedef struct sIMAGE_DATA
 {

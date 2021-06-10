@@ -43,6 +43,7 @@ extern "C" {
 #include <string.h>
 #include <stddef.h>
 #include <errno.h>
+#include <math.h>
 
 #include "ssd1306.h"
 #include "ssd1306_conf.h"
@@ -64,11 +65,15 @@ extern "C" {
 /* Exported types ------------------------------------------------------------*/
 /* USER CODE BEGIN ET */
 extern tANGLESMESSAGES *receivedAnglesData;
+
+extern float versionID;
+extern float buildID;
 /* USER CODE END ET */
 
 /* Exported constants --------------------------------------------------------*/
 /* USER CODE BEGIN EC */
-
+#define PI  3.141592653589793
+#define AHRSIMU_DEG2RAD PI/ 180.0
 /* USER CODE END EC */
 
 /* Exported macro ------------------------------------------------------------*/
