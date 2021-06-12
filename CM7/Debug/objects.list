@@ -95,6 +95,7 @@
 "Middlewares/Third_Party/OpenAMP/time.o"
 "Middlewares/Third_Party/OpenAMP/virtio.o"
 "Middlewares/Third_Party/OpenAMP/virtqueue.o"
+"Modules/Src/LidarAgent.o"
 "Modules/Src/ScreenAgent.o"
 "OPENAMP/mbox_hsem.o"
 "OPENAMP/openamp.o"

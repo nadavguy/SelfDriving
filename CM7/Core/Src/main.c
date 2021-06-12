@@ -30,6 +30,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "stm32h7xx_hal_rcc.h"
 #include "LCD_Test.h"
 #include "LCD_1in8.h"
 #include "LogoImages.h"
@@ -67,7 +68,8 @@ volatile unsigned int received_data;
 struct rpmsg_endpoint rp_endpoint;
 
 float versionID = 1.000;
-float buildID = 1.000;
+float buildID = 1.010;
+
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -132,7 +134,8 @@ HSEM notification */
 /* USER CODE END Boot_Mode_Sequence_2 */
 
   /* USER CODE BEGIN SysInit */
-
+	__HAL_RCC_D2SRAM1_CLK_ENABLE();
+//  __HAL_RCC_AHBSRAM1_CLK_ENABLE();
   /* USER CODE END SysInit */
 
   /* Initialize all configured peripherals */
@@ -143,6 +146,7 @@ HSEM notification */
   MX_I2C1_Init();
   MX_SPI3_Init();
   MX_TIM1_Init();
+  MX_USART1_UART_Init();
   /* USER CODE BEGIN 2 */
 
 	MAILBOX_Init();
@@ -195,6 +199,8 @@ HSEM notification */
 	screenInit();
 	screenClear();
 	renderCompleteFrame = true;
+
+	initLidar();
 
   /* USER CODE END 2 */
 
@@ -269,7 +275,7 @@ void SystemClock_Config(void)
   RCC_ClkInitStruct.AHBCLKDivider = RCC_HCLK_DIV1;
   RCC_ClkInitStruct.APB3CLKDivider = RCC_APB3_DIV1;
   RCC_ClkInitStruct.APB1CLKDivider = RCC_APB1_DIV2;
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV1;
+  RCC_ClkInitStruct.APB2CLKDivider = RCC_APB2_DIV2;
   RCC_ClkInitStruct.APB4CLKDivider = RCC_APB4_DIV1;
 
   if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_1) != HAL_OK)

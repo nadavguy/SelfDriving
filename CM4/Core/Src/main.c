@@ -22,12 +22,15 @@
 #include "i2c.h"
 #include "openamp.h"
 #include "spi.h"
+#include "tim.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 #include "ImuAgent.h"
 #include "memoryManager.h"
+
+#include "ControlAgent.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -126,6 +129,7 @@ int main(void)
   MX_GPIO_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
+  MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 	/* Inilitize the mailbox use notify the other core on new message */
 	MAILBOX_Init();
@@ -161,6 +165,10 @@ int main(void)
 	initMPU(chasisIMU);
 
 	initAHRS(&chasisIMUAHRS);
+
+	initServo(chasisServo, htim2, TIM_CHANNEL_1, TIM2);
+	initServo(lidarServo, htim2, TIM_CHANNEL_2, TIM2);
+	startPWM(chasisServo, 1500);
   /* USER CODE END 2 */
 
   /* Infinite loop */

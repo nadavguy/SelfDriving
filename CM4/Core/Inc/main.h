@@ -44,6 +44,7 @@ extern "C" {
 #include "MPU9250_Config.h"
 #include "messagesParser.h"
 #include "AHRS.h"
+#include "ServoControl.h"
 
 /* USER CODE END Includes */
 

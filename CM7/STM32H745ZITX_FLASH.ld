@@ -180,10 +180,41 @@ SECTIONS
     . = ALIGN(8);
   } >RAM
   
+  /* used by the startup to initialize data */
+  _siRAM_D2 = LOADADDR(.data_RAM_D2);
+
+  /* Initialized data sections goes into RAM_D2, load LMA copy after code */
+  .data_RAM_D2 : 
+  {
+    . = ALIGN(4);
+    _sRAM_D2 = .;        /* create a global symbol at data start */
+    *(.data_RAM_D2)           /* .data sections */
+    *(.data_RAM_D2*)          /* .data* sections */
+
+    . = ALIGN(4);
+    _eRAM_D2 = .;        /* define a global symbol at data end */
+  } >RAM_D2 AT> FLASH 
+
+  /* Uninitialized data section */
+  . = ALIGN(4);
+  .bss_RAM_D2 :
+  {
+    /* This is used by the startup in order to initialize the .bss secion */
+    _sbss_RAM_D2 = .;         /* define a global symbol at bss start */
+    __bss_start__ = _sbss_RAM_D2;
+    *(.bss_RAM_D2)
+    *(.bss_RAM_D2*)
+    *(COMMON)
+
+    . = ALIGN(4);
+    _ebss_RAM_D2 = .;         /* define a global symbol at bss end */
+    __bss_end__ = _ebss_RAM_D2;
+  } >RAM_D2
+  
   .openamp_section (NOLOAD) : {
      . = ABSOLUTE(0x38000000);
      *(.resource_table)  
-  } >OPENAMP_RSC_TAB  AT > FLASH
+  } >OPENAMP_RSC_TAB  AT> FLASH
 
   /* Remove information from the compiler libraries */
   /DISCARD/ :
@@ -194,4 +225,5 @@ SECTIONS
   }
 
   .ARM.attributes 0 : { *(.ARM.attributes) }
+  .RAM_D2 : {*(.RAM_D2)} >RAM_D2 AT> FLASH 
 }

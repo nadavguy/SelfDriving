@@ -56,6 +56,7 @@ void SVC_Handler(void);
 void DebugMon_Handler(void);
 void PendSV_Handler(void);
 void SysTick_Handler(void);
+void TIM2_IRQHandler(void);
 void I2C2_EV_IRQHandler(void);
 void CM7_SEV_IRQHandler(void);
 void HSEM2_IRQHandler(void);

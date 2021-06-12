@@ -94,6 +94,36 @@ LoopFillZerobss:
   cmp r2, r4
   bcc FillZerobss
 
+  /* Copy the data segment initializers from flash to RAM_D2 */
+  movs  r1, #0
+  b  LoopCopyDataInit_RAM_D2
+
+CopyDataInit_RAM_D2:
+  ldr  r3, =_siRAM_D2
+  ldr  r3, [r3, r1]
+  str  r3, [r0, r1]
+  adds  r1, r1, #4
+
+LoopCopyDataInit_RAM_D2:
+  ldr  r0, =_sRAM_D2
+  ldr  r3, =_eRAM_D2
+  adds  r2, r0, r1
+  cmp  r2, r3
+  bcc  CopyDataInit_RAM_D2
+  ldr  r2, =_sbss_RAM_D2
+  b  LoopFillZerobss_RAM_D2
+
+
+/* Zero fill the bss segment. */
+FillZerobss_RAM_D2:
+  movs  r3, #0
+  str  r3, [r2], #4
+
+LoopFillZerobss_RAM_D2:
+  ldr  r3, = _ebss_RAM_D2
+  cmp  r2, r3
+  bcc  FillZerobss_RAM_D2
+
 /* Call static constructors */
     bl __libc_init_array
 /* Call the application's entry point.*/
