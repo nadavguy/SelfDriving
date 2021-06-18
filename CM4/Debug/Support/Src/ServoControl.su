@@ -1,4 +1,4 @@
-ServoControl.c:15:6:initServo	8	static
+ServoControl.c:15:6:initServo	16	static
 ServoControl.c:22:6:startPWM	8	static
 ServoControl.c:35:6:stopPWM	8	static
 ServoControl.c:40:6:updatePWM	8	static

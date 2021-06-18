@@ -20,7 +20,7 @@ typedef struct sSERVO
 extern tSERVO chasisServo;
 extern tSERVO lidarServo;
 
-extern void initServo(tSERVO servoToInit, TIM_HandleTypeDef htimToInit, uint32_t ChannelToInit, TIM_TypeDef *TIMToInit);
+extern void initServo(tSERVO *servoToInit, TIM_HandleTypeDef htimToInit, uint32_t ChannelToInit, TIM_TypeDef *TIMToInit);
 extern void startPWM(tSERVO servoToStart, uint32_t pwmValue);
 extern void stopPWM(tSERVO servoToStop);
 extern void updatePWM(tSERVO servoToUpdate, uint32_t pwmValue);

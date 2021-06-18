@@ -9,10 +9,13 @@ RM := rm -rf
 
 # All of the sources participating in the build are defined here
 -include sources.mk
+-include USB_HOST/Target/subdir.mk
+-include USB_HOST/App/subdir.mk
 -include Support/Src/subdir.mk
 -include OPENAMP/subdir.mk
 -include Modules/Src/subdir.mk
 -include Middlewares/Third_Party/OpenAMP/subdir.mk
+-include Middlewares/ST/STM32_USB_Host_Library/subdir.mk
 -include Hardware/Screen/image/subdir.mk
 -include Hardware/Screen/example/subdir.mk
 -include Hardware/Screen/LCD/subdir.mk

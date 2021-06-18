@@ -1,1 +1,3 @@
-LidarAgent.c:17:6:initLidar	4	static
+LidarAgent.c:18:6:initLidar	4	static
+LidarAgent.c:24:6:requestLidarDeviceInfo	4	static
+LidarAgent.c:43:6:parseLidarMessage	4	static

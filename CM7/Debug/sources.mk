@@ -31,8 +31,11 @@ Hardware/Screen/GUI_DEV \
 Hardware/Screen/LCD \
 Hardware/Screen/example \
 Hardware/Screen/image \
+Middlewares/ST/STM32_USB_Host_Library \
 Middlewares/Third_Party/OpenAMP \
 Modules/Src \
 OPENAMP \
 Support/Src \
+USB_HOST/App \
+USB_HOST/Target \
 

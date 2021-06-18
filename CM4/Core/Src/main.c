@@ -19,6 +19,7 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "i2c.h"
 #include "openamp.h"
 #include "spi.h"
@@ -127,6 +128,7 @@ int main(void)
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_I2C2_Init();
   MX_SPI1_Init();
   MX_TIM2_Init();
@@ -166,8 +168,8 @@ int main(void)
 
 	initAHRS(&chasisIMUAHRS);
 
-	initServo(chasisServo, htim2, TIM_CHANNEL_1, TIM2);
-	initServo(lidarServo, htim2, TIM_CHANNEL_2, TIM2);
+	initServo(&chasisServo, htim2, TIM_CHANNEL_1, TIM2);
+	initServo(&lidarServo, htim2, TIM_CHANNEL_2, TIM2);
 	startPWM(chasisServo, 1500);
   /* USER CODE END 2 */
 

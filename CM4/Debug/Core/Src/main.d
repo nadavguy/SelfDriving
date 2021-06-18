@@ -42,7 +42,8 @@ Core/Src/main.o: ../Core/Src/main.c ../Core/Inc/main.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h \
- ../Core/Inc/i2c.h ../Core/Inc/main.h ../OPENAMP/openamp.h \
+ ../Core/Inc/dma.h ../Core/Inc/main.h ../Core/Inc/i2c.h \
+ ../OPENAMP/openamp.h \
  ../../Middlewares/Third_Party/OpenAMP/open-amp/lib/include/openamp/open_amp.h \
  ../../Middlewares/Third_Party/OpenAMP/open-amp/lib/include/openamp/rpmsg.h \
  ../../Middlewares/Third_Party/OpenAMP/open-amp/lib/include/openamp/compiler.h \
@@ -168,9 +169,11 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h:
 
-../Core/Inc/i2c.h:
+../Core/Inc/dma.h:
 
 ../Core/Inc/main.h:
+
+../Core/Inc/i2c.h:
 
 ../OPENAMP/openamp.h:
 

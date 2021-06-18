@@ -12,20 +12,20 @@
 tSERVO chasisServo;
 tSERVO lidarServo;
 
-void initServo(tSERVO servoToInit, TIM_HandleTypeDef htimToInit, uint32_t ChannelToInit, TIM_TypeDef *TIMToInit)
+void initServo(tSERVO *servoToInit, TIM_HandleTypeDef htimToInit, uint32_t ChannelToInit, TIM_TypeDef *TIMToInit)
 {
-	servoToInit.htim = htimToInit;
-	servoToInit.ChannelID = ChannelToInit;
-	servoToInit.TIM = TIMToInit;
+	servoToInit->htim = htimToInit;
+	servoToInit->ChannelID = ChannelToInit;
+	servoToInit->TIM = TIMToInit;
 }
 
 void startPWM(tSERVO servoToStart, uint32_t pwmValue)
 {
-	if (servoToStart.ChannelID == 1)
+	if (servoToStart.ChannelID == 0)
 	{
 		servoToStart.TIM->CCR1 = pwmValue;
 	}
-	else if (servoToStart.ChannelID == 2)
+	else if (servoToStart.ChannelID == 1)
 	{
 		servoToStart.TIM->CCR2 = pwmValue;
 	}

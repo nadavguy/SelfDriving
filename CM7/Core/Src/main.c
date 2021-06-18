@@ -19,13 +19,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
+#include "dma.h"
 #include "eth.h"
 #include "i2c.h"
 #include "openamp.h"
 #include "spi.h"
 #include "tim.h"
 #include "usart.h"
-#include "usb_otg.h"
+#include "usb_host.h"
 #include "gpio.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -34,6 +35,7 @@
 #include "LCD_Test.h"
 #include "LCD_1in8.h"
 #include "LogoImages.h"
+#include "UniqueImages.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -68,7 +70,7 @@ volatile unsigned int received_data;
 struct rpmsg_endpoint rp_endpoint;
 
 float versionID = 1.000;
-float buildID = 1.010;
+float buildID = 1.020;
 
 /* USER CODE END PV */
 
@@ -140,15 +142,15 @@ HSEM notification */
 
   /* Initialize all configured peripherals */
   MX_GPIO_Init();
+  MX_DMA_Init();
   MX_ETH_Init();
   MX_USART3_UART_Init();
-  MX_USB_OTG_FS_PCD_Init();
   MX_I2C1_Init();
   MX_SPI3_Init();
   MX_TIM1_Init();
   MX_USART1_UART_Init();
+  MX_USB_HOST_Init();
   /* USER CODE BEGIN 2 */
-
 	MAILBOX_Init();
 
 	/* Initialize the rpmsg endpoint to set default addresses to RPMSG_ADDR_ANY */
@@ -184,10 +186,6 @@ HSEM notification */
 	{
 		/* Receive the massage from the remote CPU */
 		message = receive_message();
-//		char localT[32] = "";
-//		snprintf(localT,sizeof(localT),"%d",message);
-//		ssd1306_SetCursor(0, 0);
-//		ssd1306_WriteString(localT, Font_7x10, White);
 		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
 		if (status < 0)
 		{
