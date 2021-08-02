@@ -33,6 +33,8 @@
 
 /* USER CODE BEGIN INCLUDE */
 #include "usbh_def.h"
+
+#define RX_BUFF_SIZE   64
 /* USER CODE END INCLUDE */
 
 /** @addtogroup USBH_OTG_DRIVER
@@ -52,7 +54,7 @@
 /**
   * @}
   */
-#define RX_BUFF_SIZE   64
+
 /** Status of the application. */
 typedef enum {
   APPLICATION_IDLE = 0,
@@ -61,8 +63,6 @@ typedef enum {
   APPLICATION_DISCONNECT
 }ApplicationTypeDef;
 
-extern ApplicationTypeDef Appli_state;
-extern USBH_StatusTypeDef usbresult;
 /** @defgroup USBH_HOST_Exported_FunctionsPrototype USBH_HOST_Exported_FunctionsPrototype
   * @brief Declaration of public functions for Usb host.
   * @{
@@ -74,7 +74,6 @@ extern USBH_StatusTypeDef usbresult;
 void MX_USB_HOST_Init(void);
 
 void MX_USB_HOST_Process(void);
-extern void CDC_HANDLE(void);
 
 /**
   * @}

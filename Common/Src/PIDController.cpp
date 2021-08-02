@@ -38,6 +38,7 @@ int PIDController::updateCycle(float input)
 		float Derivative = (CurrentError - PreviousError) / CycleDurationInmSec;
 		Output = Kp * Proportional + Ki * Integral + Kd * Derivative;
 		PreviousError = CurrentError;
+		PreviousIntegral = Integral;
 		return 0;
 	}
 	return -1;

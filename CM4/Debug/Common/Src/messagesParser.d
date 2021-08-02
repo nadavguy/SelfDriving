@@ -31,8 +31,6 @@ Common/Src/messagesParser.o: \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_i2c_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_uart.h \
@@ -43,7 +41,8 @@ Common/Src/messagesParser.o: \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Hardware/MPU9250/MPU9250_Config.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ControlAgent.h
 
 ../Core/Inc/main.h:
 
@@ -107,10 +106,6 @@ Common/Src/messagesParser.o: \
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_pwr_ex.h:
 
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi.h:
-
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_spi_ex.h:
-
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_tim_ex.h:
@@ -132,3 +127,5 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParse
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ControlAgent.h:

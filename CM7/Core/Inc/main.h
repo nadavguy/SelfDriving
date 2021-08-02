@@ -63,6 +63,8 @@ extern "C" {
 #include "ScreenAgent.h"
 
 #include "LidarAgent.h"
+
+#include "LogAgent.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
@@ -92,6 +94,10 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define SPI1_SCK_NRF_Pin GPIO_PIN_5
+#define SPI1_SCK_NRF_GPIO_Port GPIOA
+#define SPI1_MISO_NRF_Pin GPIO_PIN_6
+#define SPI1_MISO_NRF_GPIO_Port GPIOA
 #define LD1_Pin GPIO_PIN_0
 #define LD1_GPIO_Port GPIOB
 #define SPI3_MOSI___LCD_Pin GPIO_PIN_2
@@ -108,12 +114,20 @@ void Error_Handler(void);
 #define STLINK_TX_GPIO_Port GPIOD
 #define USB_OTG_FS_PWR_EN_Pin GPIO_PIN_10
 #define USB_OTG_FS_PWR_EN_GPIO_Port GPIOD
+#define GPIO_NRF_CE_Pin GPIO_PIN_14
+#define GPIO_NRF_CE_GPIO_Port GPIOD
+#define GPIO_NRF_CS_Pin GPIO_PIN_15
+#define GPIO_NRF_CS_GPIO_Port GPIOD
 #define GPIO___LCD_CS_Pin GPIO_PIN_6
 #define GPIO___LCD_CS_GPIO_Port GPIOG
 #define GPIO___LCD_DC_Pin GPIO_PIN_8
 #define GPIO___LCD_DC_GPIO_Port GPIOG
 #define SPI3_SCK___LCD_Pin GPIO_PIN_10
 #define SPI3_SCK___LCD_GPIO_Port GPIOC
+#define GPIO_SD_CS_Pin GPIO_PIN_4
+#define GPIO_SD_CS_GPIO_Port GPIOD
+#define SPI1_MOSI_NRF_Pin GPIO_PIN_7
+#define SPI1_MOSI_NRF_GPIO_Port GPIOD
 #define I2C1_SDA___ChassisMPU_Pin GPIO_PIN_7
 #define I2C1_SDA___ChassisMPU_GPIO_Port GPIOB
 #define I2C1_SCL___ChassisMPU_Pin GPIO_PIN_8

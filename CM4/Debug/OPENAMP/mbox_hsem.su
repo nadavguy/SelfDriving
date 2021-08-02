@@ -1,4 +1,4 @@
 mbox_hsem.c:47:6:HAL_HSEM_FreeCallback	16	static
 mbox_hsem.c:90:5:MAILBOX_Init	16	static
-mbox_hsem.c:136:5:MAILBOX_Poll	16	static
-mbox_hsem.c:185:5:MAILBOX_Notify	16	static
+mbox_hsem.c:130:5:MAILBOX_Poll	16	static
+mbox_hsem.c:179:5:MAILBOX_Notify	16	static

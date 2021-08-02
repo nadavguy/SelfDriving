@@ -83,7 +83,7 @@ void HAL_HSEM_FreeCallback(uint32_t SemMask)
 }
 
 /**
-  * @brief  Initialize MAILBOX with IPCC peripheral
+  * @brief  Initialize MAILBOX with HSEM peripheral
   * @param  None
   * @retval : Operation result
   */
@@ -100,9 +100,6 @@ int MAILBOX_Init(void)
 
   /* USER CODE END PRE_MAILBOX_INIT_CM7 */
 
-  /* Enable CM7 receive irq */
-  HAL_NVIC_SetPriority(HSEM1_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(HSEM1_IRQn);
   HAL_HSEM_ActivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_1));
 
   /* USER CODE BEGIN POST_MAILBOX_INIT_CM7 */
@@ -115,9 +112,6 @@ int MAILBOX_Init(void)
 
     /* USER CODE END MAILBOX_INIT_CM4 */
 
-  /* Enable CM4 receive irq */
-  HAL_NVIC_SetPriority(HSEM2_IRQn, 0, 1);
-  HAL_NVIC_EnableIRQ(HSEM2_IRQn);
   HAL_HSEM_ActivateNotification(__HAL_HSEM_SEMID_TO_MASK(HSEM_ID_0));
 
   /* USER CODE BEGIN POST_MAILBOX_INIT_CM4 */
@@ -129,7 +123,7 @@ int MAILBOX_Init(void)
 }
 
 /**
-  * @brief  Initialize MAILBOX with IPCC peripheral
+  * @brief  Initialize MAILBOX with HSEM peripheral
   * @param  virtio device
   * @retval : Operation result
   */

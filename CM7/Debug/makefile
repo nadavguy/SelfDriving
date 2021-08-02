@@ -15,6 +15,7 @@ RM := rm -rf
 -include OPENAMP/subdir.mk
 -include Modules/Src/subdir.mk
 -include Middlewares/Third_Party/OpenAMP/subdir.mk
+-include Middlewares/Third_Party/FatFs/subdir.mk
 -include Middlewares/ST/STM32_USB_Host_Library/subdir.mk
 -include Hardware/Screen/image/subdir.mk
 -include Hardware/Screen/example/subdir.mk
@@ -23,6 +24,9 @@ RM := rm -rf
 -include Hardware/Screen/Fonts/subdir.mk
 -include Hardware/Screen/Config/subdir.mk
 -include Hardware/SSD1306/subdir.mk
+-include Hardware/NRF24/subdir.mk
+-include FATFS/Target/subdir.mk
+-include FATFS/App/subdir.mk
 -include Drivers/STM32H7xx_HAL_Driver/subdir.mk
 -include Core/Startup/subdir.mk
 -include Core/Src/subdir.mk
@@ -52,8 +56,8 @@ $(wildcard ../makefile.targets) \
 
 BUILD_ARTIFACT_NAME := SelfDriving_CM7
 BUILD_ARTIFACT_EXTENSION := elf
-BUILD_ARTIFACT_PREFIX := 
-BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME).$(BUILD_ARTIFACT_EXTENSION)
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
 
 # Add inputs and outputs from these tool invocations to the build variables 
 EXECUTABLES += \
@@ -98,7 +102,7 @@ SelfDriving_CM7.bin: $(EXECUTABLES) makefile objects.list $(OPTIONAL_TOOL_DEPS)
 
 # Other Targets
 clean:
-	-$(RM) *
+	-$(RM) $(SIZE_OUTPUT)$(OBJDUMP_LIST)$(EXECUTABLES)$(OBJS)$(S_DEPS)$(S_UPPER_DEPS)$(C_DEPS)$(OBJCOPY_BIN) SelfDriving_CM7.elf
 	-@echo ' '
 
 secondary-outputs: $(SIZE_OUTPUT) $(OBJDUMP_LIST) $(OBJCOPY_BIN)
@@ -111,6 +115,5 @@ warn-no-linker-script-specified:
 	@echo 'Warning: No linker script specified. Check the linker settings in the build configuration.'
 
 .PHONY: all clean dependents fail-specified-linker-script-missing warn-no-linker-script-specified
-.SECONDARY:
 
 -include ../makefile.targets

@@ -32,7 +32,12 @@ extern "C" {
 /* USER CODE END Includes */
 
 /* USER CODE BEGIN Private defines */
-
+#define SD_CS_GPIO_Port GPIOD
+#define SD_CS_Pin GPIO_PIN_4
+#define NRF_CE_GPIO_Port GPIOD
+#define NRF_CE_Pin GPIO_PIN_14
+#define NRF_CSN_GPIO_Port GPIOD
+#define NRF_CSN_Pin GPIO_PIN_15
 /* USER CODE END Private defines */
 
 void MX_GPIO_Init(void);

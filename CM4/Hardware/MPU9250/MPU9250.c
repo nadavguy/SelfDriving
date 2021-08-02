@@ -7,7 +7,7 @@
 
 #include "../MPU9250/MPU9250.h"
 
-#include "spi.h"
+//#include "spi.h"
 
 
 const uint8_t READWRITE_CMD = 0x80;
@@ -103,24 +103,24 @@ __weak void MPU9250_OnActivate()
 static inline void MPU9250_Activate()
 {
 	MPU9250_OnActivate();
-	HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_RESET);
+//	HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_RESET);
 }
 
 static inline void MPU9250_Deactivate()
 {
-	HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_SET);
+//	HAL_GPIO_WritePin(MPU9250_CS_GPIO, MPU9250_CS_PIN, GPIO_PIN_SET);
 }
 
 uint8_t SPIx_WriteRead(uint8_t Byte)
 {
 	uint8_t receivedbyte = 0;
-	if(HAL_SPI_TransmitReceive(&hspi1,(uint8_t*) &Byte,(uint8_t*) &receivedbyte,1,0x1000)!=HAL_OK)
-	{
-		return -1;
-	}
-	else
-	{
-	}
+//	if(HAL_SPI_TransmitReceive(&hspi1,(uint8_t*) &Byte,(uint8_t*) &receivedbyte,1,0x1000)!=HAL_OK)
+//	{
+//		return -1;
+//	}
+//	else
+//	{
+//	}
 	return receivedbyte;
 }
 
@@ -139,11 +139,11 @@ void MPU_SPI_Write (uint8_t *pBuffer, uint8_t WriteAddr, uint16_t NumByteToWrite
 
 void MPU_SPI_Read(uint8_t *pBuffer, uint8_t ReadAddr, uint16_t NumByteToRead)
 {
-	MPU9250_Activate();
-	uint8_t data = ReadAddr | READWRITE_CMD;
-	HAL_SPI_Transmit(&MPU9250_SPI, &data, 1, HAL_MAX_DELAY);
-	HAL_SPI_Receive(&MPU9250_SPI, pBuffer, NumByteToRead, HAL_MAX_DELAY);
-	MPU9250_Deactivate();
+//	MPU9250_Activate();
+//	uint8_t data = ReadAddr | READWRITE_CMD;
+//	HAL_SPI_Transmit(&MPU9250_SPI, &data, 1, HAL_MAX_DELAY);
+//	HAL_SPI_Receive(&MPU9250_SPI, pBuffer, NumByteToRead, HAL_MAX_DELAY);
+//	MPU9250_Deactivate();
 }
 
 /* writes a byte to MPU9250 register given a register address and data */

@@ -78,7 +78,7 @@ void HAL_HCD_MspInit(HCD_HandleTypeDef* hcdHandle)
     PeriphClkInitStruct.PLL3.PLL3Q = 3;
     PeriphClkInitStruct.PLL3.PLL3R = 2;
     PeriphClkInitStruct.PLL3.PLL3RGE = RCC_PLL3VCIRANGE_3;
-    PeriphClkInitStruct.PLL3.PLL3FRACN = 6144.0;
+    PeriphClkInitStruct.PLL3.PLL3FRACN = 6144;
     PeriphClkInitStruct.UsbClockSelection = RCC_USBCLKSOURCE_PLL3;
     if (HAL_RCCEx_PeriphCLKConfig(&PeriphClkInitStruct) != HAL_OK)
     {
@@ -342,7 +342,7 @@ USBH_StatusTypeDef USBH_LL_ResetPort(USBH_HandleTypeDef *phost)
 }
 
 /**
-  * @brief  Return the last transfered packet size.
+  * @brief  Return the last transferred packet size.
   * @param  phost: Host handle
   * @param  pipe: Pipe index
   * @retval Packet size
@@ -537,7 +537,7 @@ void USBH_Delay(uint32_t Delay)
 }
 
 /**
-  * @brief  Retuns the USB status depending on the HAL status:
+  * @brief  Returns the USB status depending on the HAL status:
   * @param  hal_status: HAL status
   * @retval USB status
   */

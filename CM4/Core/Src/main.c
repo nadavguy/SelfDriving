@@ -22,7 +22,6 @@
 #include "dma.h"
 #include "i2c.h"
 #include "openamp.h"
-#include "spi.h"
 #include "tim.h"
 #include "gpio.h"
 
@@ -31,7 +30,6 @@
 #include "ImuAgent.h"
 #include "memoryManager.h"
 
-#include "ControlAgent.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -130,37 +128,36 @@ int main(void)
   MX_GPIO_Init();
   MX_DMA_Init();
   MX_I2C2_Init();
-  MX_SPI1_Init();
   MX_TIM2_Init();
   /* USER CODE BEGIN 2 */
 	/* Inilitize the mailbox use notify the other core on new message */
-	MAILBOX_Init();
+  MAILBOX_Init();
 
-	if (MX_OPENAMP_Init(RPMSG_REMOTE, NULL)!= HAL_OK)
-	{
-		Error_Handler();
-	}
+  if (MX_OPENAMP_Init(RPMSG_REMOTE, NULL)!= HAL_OK)
+  {
+	  Error_Handler();
+  }
 
-	/* create a endpoint for rmpsg communication */
-	status = OPENAMP_create_endpoint(&rp_endpoint, RPMSG_SERVICE_NAME, RPMSG_ADDR_ANY,
-			rpmsg_recv_callback, NULL);
-	if (status < 0)
-	{
-		Error_Handler();
-	}
+  /* create a endpoint for rmpsg communication */
+  status = OPENAMP_create_endpoint(&rp_endpoint, RPMSG_SERVICE_NAME, RPMSG_ADDR_ANY,
+		  rpmsg_recv_callback, NULL);
+  if (status < 0)
+  {
+	  Error_Handler();
+  }
 
-	/* Pingpong application*/
-	/* Reveice an interger from the master, incremennt it and send back the result to the master*/
-	while (message < 100)
-	{
-		message = receive_message();
-		message++;
-		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
-		if (status < 0)
-		{
-			Error_Handler();
-		}
-	}
+  /* Pingpong application*/
+  /* Reveice an interger from the master, incremennt it and send back the result to the master*/
+  while (message < 100)
+  {
+	  message = receive_message();
+	  message++;
+	  status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));
+	  if (status < 0)
+	  {
+		  Error_Handler();
+	  }
+  }
 
 	chasisIMU.deviceAddress = 0x68<<1;
 	chasisIMU.i2cID = hi2c2;
@@ -181,6 +178,8 @@ int main(void)
 	{
 		runAHRSCycle();
 		sendAnglesToCM7(chasisIMUAHRS, chasisIMUAHRS);
+//		updatePIDs();
+		updatePIDs();
 
 
 //		HAL_Delay(1);

@@ -54,7 +54,6 @@ uint8_t i=0;
 USBH_HandleTypeDef hUsbHostFS;
 ApplicationTypeDef Appli_state = APPLICATION_IDLE;
 
-
 /*
  * -- Insert your variables declaration here --
  */

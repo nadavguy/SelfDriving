@@ -24,6 +24,9 @@ Common/Src \
 Core/Src \
 Core/Startup \
 Drivers/STM32H7xx_HAL_Driver \
+FATFS/App \
+FATFS/Target \
+Hardware/NRF24 \
 Hardware/SSD1306 \
 Hardware/Screen/Config \
 Hardware/Screen/Fonts \
@@ -32,6 +35,7 @@ Hardware/Screen/LCD \
 Hardware/Screen/example \
 Hardware/Screen/image \
 Middlewares/ST/STM32_USB_Host_Library \
+Middlewares/Third_Party/FatFs \
 Middlewares/Third_Party/OpenAMP \
 Modules/Src \
 OPENAMP \

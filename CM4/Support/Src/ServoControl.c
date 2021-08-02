@@ -39,11 +39,11 @@ void stopPWM(tSERVO servoToStop)
 
 void updatePWM(tSERVO servoToUpdate, uint32_t pwmValue)
 {
-	if (servoToUpdate.ChannelID == 1)
+	if (servoToUpdate.ChannelID == 0)
 	{
 		servoToUpdate.TIM->CCR1 = pwmValue;
 	}
-	else if (servoToUpdate.ChannelID == 2)
+	else if (servoToUpdate.ChannelID == 1)
 	{
 		servoToUpdate.TIM->CCR2 = pwmValue;
 	}

@@ -1,0 +1,3 @@
+adafruit_802.c:70:9:ADAFRUIT_802_JOY_Init	24	static
+adafruit_802.c:136:9:ADAFRUIT_802_JOY_DeInit	24	static
+adafruit_802.c:176:9:ADAFRUIT_802_JOY_GetState	24	static

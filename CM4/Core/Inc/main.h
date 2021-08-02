@@ -45,6 +45,7 @@ extern "C" {
 #include "messagesParser.h"
 #include "AHRS.h"
 #include "ServoControl.h"
+#include "ControlAgent.h"
 
 /* USER CODE END Includes */
 
