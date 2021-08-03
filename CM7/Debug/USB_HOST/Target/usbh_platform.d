@@ -87,7 +87,11 @@ USB_HOST/Target/usbh_platform.o: ../USB_HOST/Target/usbh_platform.c \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/PopupHelper.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
+ ../../Middlewares/Third_Party/FatFs/src/ff.h \
+ ../../Middlewares/Third_Party/FatFs/src/integer.h \
+ ../FATFS/Target/ffconf.h
 
 ../USB_HOST/Target/usbh_platform.h:
 
@@ -276,3 +280,11 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHel
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h:
+
+../../Middlewares/Third_Party/FatFs/src/ff.h:
+
+../../Middlewares/Third_Party/FatFs/src/integer.h:
+
+../FATFS/Target/ffconf.h:

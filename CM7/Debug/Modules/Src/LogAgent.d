@@ -1,5 +1,4 @@
-Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
- ../Core/Inc/main.h \
+Modules/Src/LogAgent.o: ../Modules/Src/LogAgent.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -79,7 +78,6 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_fonts.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd1306_tests.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h \
- ../Core/Inc/main.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/MenuHelper.h \
@@ -91,9 +89,11 @@ Core/Src/usart.o: ../Core/Src/usart.c ../Core/Inc/usart.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
  ../../Middlewares/Third_Party/FatFs/src/ff.h \
  ../../Middlewares/Third_Party/FatFs/src/integer.h \
- ../FATFS/Target/ffconf.h
-
-../Core/Inc/usart.h:
+ ../FATFS/Target/ffconf.h ../FATFS/App/fatfs.h \
+ ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
+ ../../Middlewares/Third_Party/FatFs/src/diskio.h \
+ ../../Middlewares/Third_Party/FatFs/src/ff.h \
+ ../FATFS/Target/user_diskio.h
 
 ../Core/Inc/main.h:
 
@@ -259,8 +259,6 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/SSD1306/ssd
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/memoryManager.h:
 
-../Core/Inc/main.h:
-
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/messagesParser.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Hardware/Screen/Fonts/fonts.h:
@@ -284,3 +282,13 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent
 ../../Middlewares/Third_Party/FatFs/src/integer.h:
 
 ../FATFS/Target/ffconf.h:
+
+../FATFS/App/fatfs.h:
+
+../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
+
+../../Middlewares/Third_Party/FatFs/src/diskio.h:
+
+../../Middlewares/Third_Party/FatFs/src/ff.h:
+
+../FATFS/Target/user_diskio.h:

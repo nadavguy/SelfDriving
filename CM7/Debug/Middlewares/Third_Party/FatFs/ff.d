@@ -90,6 +90,8 @@ Middlewares/Third_Party/FatFs/ff.o: \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
+ ../../Middlewares/Third_Party/FatFs/src/ff.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Middlewares/Third_Party/FatFs/src/diskio.h
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Middlewares/Third_Party/FatFs/src/ff.h:
@@ -277,5 +279,9 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHel
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h:
+
+../../Middlewares/Third_Party/FatFs/src/ff.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Middlewares/Third_Party/FatFs/src/diskio.h:

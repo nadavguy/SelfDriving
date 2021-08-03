@@ -33,7 +33,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "ff_gen_drv.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/

@@ -88,6 +88,10 @@ USB_HOST/Target/usbh_conf.o: ../USB_HOST/Target/usbh_conf.c \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHelper.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
+ ../../Middlewares/Third_Party/FatFs/src/ff.h \
+ ../../Middlewares/Third_Party/FatFs/src/integer.h \
+ ../FATFS/Target/ffconf.h \
  ../../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h \
  ../../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_ioreq.h \
  ../../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_core.h \
@@ -279,6 +283,14 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/FrameHel
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h:
+
+../../Middlewares/Third_Party/FatFs/src/ff.h:
+
+../../Middlewares/Third_Party/FatFs/src/integer.h:
+
+../FATFS/Target/ffconf.h:
 
 ../../Middlewares/ST/STM32_USB_Host_Library/Core/Inc/usbh_def.h:
 

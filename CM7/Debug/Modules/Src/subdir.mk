@@ -6,16 +6,19 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Modules/Src/LidarAgent.c \
+../Modules/Src/LogAgent.c \
 ../Modules/Src/MotorAgent.c \
 ../Modules/Src/ScreenAgent.c 
 
 OBJS += \
 ./Modules/Src/LidarAgent.o \
+./Modules/Src/LogAgent.o \
 ./Modules/Src/MotorAgent.o \
 ./Modules/Src/ScreenAgent.o 
 
 C_DEPS += \
 ./Modules/Src/LidarAgent.d \
+./Modules/Src/LogAgent.d \
 ./Modules/Src/MotorAgent.d \
 ./Modules/Src/ScreenAgent.d 
 

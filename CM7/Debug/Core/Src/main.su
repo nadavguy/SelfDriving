@@ -1,10 +1,7 @@
 rpmsg.h:147:19:rpmsg_send	32	static
 rpmsg.h:286:20:rpmsg_init_ept	24	static
-support.h:16:20:nRF24_CE_L	8	static
-support.h:21:20:nRF24_CE_H	8	static
-support.h:50:20:Delay_ms	16	static
-main.c:113:5:main	1688	static,ignoring_inline_asm
-main.c:355:6:SystemClock_Config	120	static
-main.c:415:13:CPU_CACHE_Enable	24	static,ignoring_inline_asm
-main.c:431:13:MPU_Config	24	static
-main.c:463:6:Error_Handler	4	static,ignoring_inline_asm
+main.c:117:5:main	40	static,ignoring_inline_asm
+main.c:337:6:SystemClock_Config	120	static
+main.c:397:13:CPU_CACHE_Enable	24	static,ignoring_inline_asm
+main.c:413:13:MPU_Config	24	static
+main.c:445:6:Error_Handler	4	static,ignoring_inline_asm

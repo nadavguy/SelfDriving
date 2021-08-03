@@ -1,0 +1,7 @@
+LogAgent.c:30:9:initSDCard	8	static
+LogAgent.c:56:6:createNewLogFile	40	static
+LogAgent.c:120:6:closeLogFile	8	static
+LogAgent.c:126:6:writeToLog	16	static
+LogAgent.c:135:10:getCurrentLogSize	344	static
+LogAgent.c:153:6:monitorLogSize	8	static
+LogAgent.c:167:6:deleteLogs	368	static
