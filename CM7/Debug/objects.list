@@ -120,6 +120,7 @@
 "./Support/Src/ItemHelper.o"
 "./Support/Src/MenuHelper.o"
 "./Support/Src/PopupHelper.o"
+"./Support/Src/TimeHelper.o"
 "./USB_HOST/App/usb_host.o"
 "./USB_HOST/Target/usbh_conf.o"
 "./USB_HOST/Target/usbh_platform.o"

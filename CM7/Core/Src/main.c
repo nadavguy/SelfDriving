@@ -39,10 +39,8 @@
 #include "LCD_1in8.h"
 #include "LogoImages.h"
 #include "UniqueImages.h"
+
 #include "nrf24.h"
-
-#include "LogAgent.h"
-
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -77,7 +75,7 @@ volatile unsigned int received_data;
 struct rpmsg_endpoint rp_endpoint;
 
 float versionID = 1.000;
-float buildID = 1.040;
+float buildID = 1.050;
 
 uint8_t nRF24_payload[32];
 uint8_t payload_length;
@@ -184,6 +182,8 @@ HSEM notification */
 	{
 		createNewLogFile();
 	}
+	sprintf(terminalBuffer,"Test terminal");
+	logData(terminalBuffer, false, false, false);
 
 	/* Initialize the rpmsg endpoint to set default addresses to RPMSG_ADDR_ANY */
 	rpmsg_init_ept(&rp_endpoint, RPMSG_CHAN_NAME, RPMSG_ADDR_ANY, RPMSG_ADDR_ANY,
@@ -316,6 +316,10 @@ HSEM notification */
 		screenUpdate(true);
 		displayNextFrame();
 		message = 0;
+
+		monitorLogSize();
+		sprintf(terminalBuffer,"Test terminal");
+		logData(terminalBuffer, false, false, false);
 
 		/* Send the massage to the remote CPU */
 //		status = OPENAMP_send(&rp_endpoint, &message, sizeof(message));

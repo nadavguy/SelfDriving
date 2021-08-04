@@ -1,7 +1,8 @@
-LogAgent.c:30:9:initSDCard	8	static
-LogAgent.c:56:6:createNewLogFile	40	static
-LogAgent.c:120:6:closeLogFile	8	static
-LogAgent.c:126:6:writeToLog	16	static
-LogAgent.c:135:10:getCurrentLogSize	344	static
-LogAgent.c:153:6:monitorLogSize	8	static
-LogAgent.c:167:6:deleteLogs	368	static
+LogAgent.c:33:9:initSDCard	8	static
+LogAgent.c:59:6:createNewLogFile	40	static
+LogAgent.c:123:6:closeLogFile	8	static
+LogAgent.c:129:6:writeToLog	16	static
+LogAgent.c:138:10:getCurrentLogSize	344	static
+LogAgent.c:156:6:monitorLogSize	8	static
+LogAgent.c:170:6:deleteLogs	368	static
+LogAgent.c:203:6:logData	1056	static

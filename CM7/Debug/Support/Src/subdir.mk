@@ -8,19 +8,22 @@ C_SRCS += \
 ../Support/Src/FrameHelper.c \
 ../Support/Src/ItemHelper.c \
 ../Support/Src/MenuHelper.c \
-../Support/Src/PopupHelper.c 
+../Support/Src/PopupHelper.c \
+../Support/Src/TimeHelper.c 
 
 OBJS += \
 ./Support/Src/FrameHelper.o \
 ./Support/Src/ItemHelper.o \
 ./Support/Src/MenuHelper.o \
-./Support/Src/PopupHelper.o 
+./Support/Src/PopupHelper.o \
+./Support/Src/TimeHelper.o 
 
 C_DEPS += \
 ./Support/Src/FrameHelper.d \
 ./Support/Src/ItemHelper.d \
 ./Support/Src/MenuHelper.d \
-./Support/Src/PopupHelper.d 
+./Support/Src/PopupHelper.d \
+./Support/Src/TimeHelper.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

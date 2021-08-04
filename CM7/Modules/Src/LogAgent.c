@@ -8,6 +8,7 @@
 #include "main.h"
 #include "fatfs.h"
 #include "ff.h"
+#include "usart.h"
 
 FATFS FatFs; 	//Fatfs handle
 FIL fil; 		//File handle
@@ -25,7 +26,9 @@ uint32_t lastFileSizeCheck = 0;
 bool isValidLog = false;
 
 char currentLogFilename[64] = "";
-char logBuffer[16384];
+char logBuffer[16384] = "";
+char terminalBuffer[1024] = "";
+
 
 uint8_t initSDCard(void)
 {
@@ -136,15 +139,17 @@ uint32_t getCurrentLogSize(void)
 {
     FILINFO fno1;
     DIR dp1;
+    FRESULT localRes = FR_OK;
     f_opendir(&dp1, "\\");
-    f_findfirst(&dp1, &fno1, "\\", "LOG_*");
-    while( (f_findnext(&dp1, &fno1) == FR_OK) && (fno1.fname[0] != 0x00) )
+    localRes = f_findfirst(&dp1, &fno1, "\\", "LOG_*");
+    while( (localRes == FR_OK) && (fno1.fname[0] != 0x00) )
     {
     	f_stat("\\", &fno1);
     	if(strcmp(currentLogFilename, fno1.fname) == 0)
     	{
     		return fno1.fsize;
     	}
+    	localRes = f_findnext(&dp1, &fno1);
     }
     f_closedir(&dp1);
     return 0;
@@ -152,7 +157,7 @@ uint32_t getCurrentLogSize(void)
 
 void monitorLogSize(void)
 {
-	if (HAL_GetTick() - lastFileSizeCheck > 10000)
+	if ( (HAL_GetTick() - lastFileSizeCheck > 10000) && (isValidLog) )
 	{
 		f_sync(&fil);
 		if (getCurrentLogSize() > MAX_LOG_SIZE)
@@ -195,4 +200,42 @@ void deleteLogs(void)
 	}
 	f_closedir(&dp1);
 //	logData("EOD", false, true, true);
+}
+
+void logData(char *dataToLog, bool doNotShowOnDisplay, bool displayOnly, bool doNotDisplayTime)
+{
+    char localString[1024] = "";
+    unsigned int BytesWritten = 0;
+
+    if ( (strcmp(dataToLog,"") != 0) && (!doNotDisplayTime) )
+    {
+        sprintf(localString, "%s, %s\r\n", CT(), dataToLog);
+    }
+    else if ( (strcmp(dataToLog,"") != 0) && (doNotDisplayTime) )
+    {
+        sprintf(localString, "%s\r\n", dataToLog);
+    }
+    else
+    {
+        sprintf(localString, "\r\n");
+    }
+    //TODO: disable sessionUnlocked and replace with debugLevel
+    if ( (displayOnly) /*&& (!isInfwUpdateMode)*/ )
+    {
+//    	CDC_Transmit_FS((uint8_t*)localString, strlen(localString));
+    	HAL_UART_Transmit(&huart3, (uint8_t*)localString, strlen(localString), 10);
+    }
+    else if (!displayOnly || !doNotShowOnDisplay)
+    {
+    	f_write(&fil, localString, strlen(localString), &BytesWritten);
+//    	if (BytesWritten < strlen(localString))
+//    	{
+//    		int a= 1;
+//    	}
+    	if ( (!doNotShowOnDisplay) /*&& (!isInfwUpdateMode)*/ )
+    	{
+//    		CDC_Transmit_FS((uint8_t*)localString, strlen(localString));
+    		HAL_UART_Transmit(&huart3, (uint8_t*)localString, strlen(localString), 10);
+    	}
+    }
 }

@@ -93,7 +93,8 @@ Middlewares/Third_Party/FatFs/ff_gen_drv.o: \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/ScreenAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
- ../../Middlewares/Third_Party/FatFs/src/ff.h
+ ../../Middlewares/Third_Party/FatFs/src/ff.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
 
@@ -288,3 +289,5 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAge
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h:
 
 ../../Middlewares/Third_Party/FatFs/src/ff.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h:

@@ -1,9 +1,4 @@
-FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
- ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
- ../../Middlewares/Third_Party/FatFs/src/diskio.h \
- ../../Middlewares/Third_Party/FatFs/src/integer.h \
- ../../Middlewares/Third_Party/FatFs/src/ff.h ../FATFS/Target/ffconf.h \
- ../Core/Inc/main.h \
+Support/Src/TimeHelper.o: ../Support/Src/TimeHelper.c ../Core/Inc/main.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal.h \
  ../Core/Inc/stm32h7xx_hal_conf.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_rcc.h \
@@ -93,20 +88,9 @@ FATFS/Target/user_diskio.o: ../FATFS/Target/user_diskio.c \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LidarAgent.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
  ../../Middlewares/Third_Party/FatFs/src/ff.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h \
- ../FATFS/Target/user_diskio_spi.h \
  ../../Middlewares/Third_Party/FatFs/src/integer.h \
- ../../Middlewares/Third_Party/FatFs/src/diskio.h
-
-../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
-
-../../Middlewares/Third_Party/FatFs/src/diskio.h:
-
-../../Middlewares/Third_Party/FatFs/src/integer.h:
-
-../../Middlewares/Third_Party/FatFs/src/ff.h:
-
-../FATFS/Target/ffconf.h:
+ ../FATFS/Target/ffconf.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h
 
 ../Core/Inc/main.h:
 
@@ -292,10 +276,8 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent
 
 ../../Middlewares/Third_Party/FatFs/src/ff.h:
 
-C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h:
-
-../FATFS/Target/user_diskio_spi.h:
-
 ../../Middlewares/Third_Party/FatFs/src/integer.h:
 
-../../Middlewares/Third_Party/FatFs/src/diskio.h:
+../FATFS/Target/ffconf.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h:

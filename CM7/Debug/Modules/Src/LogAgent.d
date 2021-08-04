@@ -89,11 +89,13 @@ Modules/Src/LogAgent.o: ../Modules/Src/LogAgent.c ../Core/Inc/main.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent.h \
  ../../Middlewares/Third_Party/FatFs/src/ff.h \
  ../../Middlewares/Third_Party/FatFs/src/integer.h \
- ../FATFS/Target/ffconf.h ../FATFS/App/fatfs.h \
+ ../FATFS/Target/ffconf.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h \
+ ../FATFS/App/fatfs.h \
  ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h \
  ../../Middlewares/Third_Party/FatFs/src/diskio.h \
  ../../Middlewares/Third_Party/FatFs/src/ff.h \
- ../FATFS/Target/user_diskio.h
+ ../FATFS/Target/user_diskio.h ../Core/Inc/usart.h ../Core/Inc/main.h
 
 ../Core/Inc/main.h:
 
@@ -283,6 +285,8 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent
 
 ../FATFS/Target/ffconf.h:
 
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Support/Inc/TimeHelper.h:
+
 ../FATFS/App/fatfs.h:
 
 ../../Middlewares/Third_Party/FatFs/src/ff_gen_drv.h:
@@ -292,3 +296,7 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM7/Modules/Inc/LogAgent
 ../../Middlewares/Third_Party/FatFs/src/ff.h:
 
 ../FATFS/Target/user_diskio.h:
+
+../Core/Inc/usart.h:
+
+../Core/Inc/main.h:

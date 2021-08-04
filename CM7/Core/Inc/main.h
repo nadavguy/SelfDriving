@@ -65,6 +65,8 @@ extern "C" {
 #include "LidarAgent.h"
 
 #include "LogAgent.h"
+
+#include "TimeHelper.h"
 /* USER CODE END Includes */
 
 /* Exported types ------------------------------------------------------------*/
