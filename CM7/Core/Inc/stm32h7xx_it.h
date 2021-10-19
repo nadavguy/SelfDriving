@@ -61,7 +61,7 @@ void EXTI1_IRQHandler(void);
 void DMA1_Stream0_IRQHandler(void);
 void DMA1_Stream1_IRQHandler(void);
 void I2C1_EV_IRQHandler(void);
-void SPI1_IRQHandler(void);
+void USART1_IRQHandler(void);
 void CM4_SEV_IRQHandler(void);
 void OTG_FS_IRQHandler(void);
 void HSEM1_IRQHandler(void);

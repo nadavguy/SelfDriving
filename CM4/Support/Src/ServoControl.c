@@ -29,7 +29,8 @@ void startPWM(tSERVO servoToStart, uint32_t pwmValue)
 	{
 		servoToStart.TIM->CCR2 = pwmValue;
 	}
-	HAL_TIM_PWM_Start(&servoToStart.htim, servoToStart.ChannelID);
+	HAL_TIM_PWM_Start_IT(&servoToStart.htim, servoToStart.ChannelID);
+//	HAL_TIM_PWM_Start_IT(htim, Channel)
 }
 
 void stopPWM(tSERVO servoToStop)
@@ -39,11 +40,11 @@ void stopPWM(tSERVO servoToStop)
 
 void updatePWM(tSERVO servoToUpdate, uint32_t pwmValue)
 {
-	if (servoToUpdate.ChannelID == 0)
+	if (servoToUpdate.ChannelID == TIM_CHANNEL_1)
 	{
 		servoToUpdate.TIM->CCR1 = pwmValue;
 	}
-	else if (servoToUpdate.ChannelID == 1)
+	else if (servoToUpdate.ChannelID == TIM_CHANNEL_2)
 	{
 		servoToUpdate.TIM->CCR2 = pwmValue;
 	}

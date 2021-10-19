@@ -135,10 +135,6 @@ uint8_t nRF24_Check(void)
 	uint8_t *ptr = (uint8_t *)nRF24_TEST_ADDR;
 
 
-	uint8_t resetTX[5] = { 0xE7, 0xE7, 0xE7, 0xE7, 0xE7};
-
-
-
 //	nRF24_ReadMBReg(nRF24_CMD_R_REGISTER | nRF24_REG_TX_ADDR, rxbuf, 5);
 //	// Write test TX address and read TX_ADDR register
 //	nRF24_WriteMBReg(nRF24_CMD_W_REGISTER | nRF24_REG_TX_ADDR, ptr, 5);

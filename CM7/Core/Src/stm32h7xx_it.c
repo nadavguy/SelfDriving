@@ -42,8 +42,8 @@
 
 /* Private variables ---------------------------------------------------------*/
 /* USER CODE BEGIN PV */
-GPIO_PinState A;
-GPIO_PinState B;
+GPIO_PinState channelARightBack;
+GPIO_PinState channelBRightBack;
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -59,9 +59,9 @@ GPIO_PinState B;
 /* External variables --------------------------------------------------------*/
 extern HCD_HandleTypeDef hhcd_USB_OTG_FS;
 extern I2C_HandleTypeDef hi2c1;
-extern SPI_HandleTypeDef hspi1;
 extern DMA_HandleTypeDef hdma_usart1_rx;
 extern DMA_HandleTypeDef hdma_usart3_rx;
+extern UART_HandleTypeDef huart1;
 /* USER CODE BEGIN EV */
 
 /* USER CODE END EV */
@@ -275,17 +275,17 @@ void I2C1_EV_IRQHandler(void)
 }
 
 /**
-  * @brief This function handles SPI1 global interrupt.
+  * @brief This function handles USART1 global interrupt.
   */
-void SPI1_IRQHandler(void)
+void USART1_IRQHandler(void)
 {
-  /* USER CODE BEGIN SPI1_IRQn 0 */
+  /* USER CODE BEGIN USART1_IRQn 0 */
 
-  /* USER CODE END SPI1_IRQn 0 */
-  HAL_SPI_IRQHandler(&hspi1);
-  /* USER CODE BEGIN SPI1_IRQn 1 */
+  /* USER CODE END USART1_IRQn 0 */
+  HAL_UART_IRQHandler(&huart1);
+  /* USER CODE BEGIN USART1_IRQn 1 */
 
-  /* USER CODE END SPI1_IRQn 1 */
+  /* USER CODE END USART1_IRQn 1 */
 }
 
 /**
@@ -347,12 +347,13 @@ void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin)
 {
 	if (GPIO_Pin == GPIO_PIN_0)
 	{
-		A = HAL_GPIO_ReadPin(GPIOD, GPIO_Pin);
+		channelARightBack = HAL_GPIO_ReadPin(GPIOD, GPIO_Pin);
 	}
 	else if (GPIO_Pin == GPIO_PIN_1)
 	{
-		B = HAL_GPIO_ReadPin(GPIOD, GPIO_Pin);
+		channelBRightBack = HAL_GPIO_ReadPin(GPIOD, GPIO_Pin);
 	}
+	currentAggregatedRBMotor = 0x10 * channelARightBack + channelBRightBack;
 	int a = 1;
 }
 /* USER CODE END 1 */

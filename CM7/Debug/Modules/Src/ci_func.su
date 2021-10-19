@@ -1,0 +1,15 @@
+core_cm7.h:2156:34:__NVIC_SystemReset	4	static,ignoring_inline_asm
+ci_func.c:13:12:func_debug	8	static
+ci_func.c:29:12:func_versionReport	16	static
+ci_func.c:36:12:func_resetRC	8	static
+ci_func.c:42:12:func_showAvailableCommands	4	static
+ci_func.c:47:12:func_systemConfiguration	4	static
+ci_func.c:57:12:func_openNewLogFile	8	static
+ci_func.c:68:12:func_closeCurrentLogFile	8	static
+ci_func.c:80:12:func_deleteFile	16	static
+ci_func.c:104:12:func_moveForward	4	static
+ci_func.c:113:12:func_moveReverse	4	static
+ci_func.c:122:12:func_rotate	4	static
+ci_func.c:131:12:func_dir	344	static
+ci_func.c:153:12:func_fmt	8	static
+ci_func.c:193:9:funcTable	24	static

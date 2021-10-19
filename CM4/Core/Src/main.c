@@ -168,6 +168,8 @@ int main(void)
 	initServo(&chasisServo, htim2, TIM_CHANNEL_1, TIM2);
 	initServo(&lidarServo, htim2, TIM_CHANNEL_2, TIM2);
 	startPWM(chasisServo, 1500);
+	startPWM(lidarServo, 1500);
+	HAL_Delay(2000);
   /* USER CODE END 2 */
 
   /* Infinite loop */

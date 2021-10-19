@@ -1,0 +1,10 @@
+KalmanFilter.cpp:10:1:KalmanFilter::KalmanFilter()	16	static
+KalmanFilter.cpp:16:1:KalmanFilter::KalmanFilter(double, double, double, double)	48	static
+KalmanFilter.cpp:41:8:double KalmanFilter::getFilteredValue(double)	40	static
+KalmanFilter.cpp:56:6:void KalmanFilter::setParameters(double, double, double)	40	static
+KalmanFilter.cpp:63:6:void KalmanFilter::setParameters(double, double)	32	static
+KalmanFilter.cpp:69:8:double KalmanFilter::getProcessNoise()	16	static
+KalmanFilter.cpp:74:8:double KalmanFilter::getSensorNoise()	16	static
+KalmanFilter.cpp:79:8:double KalmanFilter::getEstimatedError()	16	static
+KalmanFilter.cpp:84:1:KalmanFilter::~KalmanFilter()	16	static
+KalmanFilter.cpp:84:1:virtual KalmanFilter::~KalmanFilter()	16	static

@@ -26,22 +26,18 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
 
 /* USER CODE BEGIN Includes */
 
 /* USER CODE END Includes */
 
-extern SPI_HandleTypeDef hspi1;
 extern SPI_HandleTypeDef hspi2;
 extern SPI_HandleTypeDef hspi3;
 
 /* USER CODE BEGIN Private defines */
 #define SD_SPI_HANDLE hspi2
-#define NRF_SPI_HANDLE hspi1
 /* USER CODE END Private defines */
 
-void MX_SPI1_Init(void);
 void MX_SPI2_Init(void);
 void MX_SPI3_Init(void);
 

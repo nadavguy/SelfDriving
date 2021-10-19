@@ -77,6 +77,8 @@ void Error_Handler(void);
 /* USER CODE END EFP */
 
 /* Private defines -----------------------------------------------------------*/
+#define TIM2_CH1___Gimbal_Pin GPIO_PIN_0
+#define TIM2_CH1___Gimbal_GPIO_Port GPIOA
 #define I2C2_SCL___OLED_Screen_Pin GPIO_PIN_10
 #define I2C2_SCL___OLED_Screen_GPIO_Port GPIOB
 #define I2C2_SDA___OLED_Screen_Pin GPIO_PIN_11
@@ -85,6 +87,8 @@ void Error_Handler(void);
 #define STLINK_RX_GPIO_Port GPIOD
 #define STLINK_TX_Pin GPIO_PIN_9
 #define STLINK_TX_GPIO_Port GPIOD
+#define TIM2_CH2___Gimbal_Pin GPIO_PIN_3
+#define TIM2_CH2___Gimbal_GPIO_Port GPIOB
 /* USER CODE BEGIN Private defines */
 extern uint32_t message;
 extern volatile int message_received;

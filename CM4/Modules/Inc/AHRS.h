@@ -17,6 +17,9 @@ typedef struct sAHRSDATA
 	float Pitch;       /*!< Pitch angle value. This parameter is in units of degrees */
 	float Yaw;         /*!< Yaw angle value. This parameter is in units of degrees */
 	float Inclination; /*!< Inclination in units of degrees */
+	float filteredRoll;        /*!< Roll angle value. This parameter is in units of degrees */
+	float filteredPitch;       /*!< Pitch angle value. This parameter is in units of degrees */
+	float filteredYaw;         /*!< Yaw angle value. This parameter is in units of degrees */
 
 	float beta;
 	float q0;

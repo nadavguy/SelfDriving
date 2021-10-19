@@ -26,7 +26,6 @@ extern "C" {
 
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "string.h"
 
 /* USER CODE BEGIN Includes */
 
@@ -43,7 +42,7 @@ void MX_USART1_UART_Init(void);
 void MX_USART3_UART_Init(void);
 
 /* USER CODE BEGIN Prototypes */
-
+extern uint8_t bleRXArray[64];
 /* USER CODE END Prototypes */
 
 #ifdef __cplusplus

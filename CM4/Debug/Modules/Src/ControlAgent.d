@@ -19,8 +19,6 @@ Modules/Src/ControlAgent.o: ../Modules/Src/ControlAgent.cpp \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth.h \
- ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth_ex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_cortex.h \
  ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_flash.h \
@@ -42,7 +40,8 @@ Modules/Src/ControlAgent.o: ../Modules/Src/ControlAgent.cpp \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/AHRS.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoControl.h \
  C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ControlAgent.h \
- C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/PIDController.h
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/PIDController.h \
+ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/KalmanFilter.h
 
 ../Core/Inc/main.h:
 
@@ -83,10 +82,6 @@ Modules/Src/ControlAgent.o: ../Modules/Src/ControlAgent.cpp \
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_dma_ex.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_mdma.h:
-
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth.h:
-
-../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_eth_ex.h:
 
 ../../Drivers/STM32H7xx_HAL_Driver/Inc/stm32h7xx_hal_exti.h:
 
@@ -131,3 +126,5 @@ C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Support/Inc/ServoCon
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/CM4/Modules/Inc/ControlAgent.h:
 
 C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/PIDController.h:
+
+C:/Users/raing/STM32CubeIDE/workspace_1.3.0/SelfDriving/Common/Inc/KalmanFilter.h:

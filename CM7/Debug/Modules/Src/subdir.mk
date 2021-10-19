@@ -8,19 +8,25 @@ C_SRCS += \
 ../Modules/Src/LidarAgent.c \
 ../Modules/Src/LogAgent.c \
 ../Modules/Src/MotorAgent.c \
-../Modules/Src/ScreenAgent.c 
+../Modules/Src/ScreenAgent.c \
+../Modules/Src/ci_func.c \
+../Modules/Src/cmd_interp.c 
 
 OBJS += \
 ./Modules/Src/LidarAgent.o \
 ./Modules/Src/LogAgent.o \
 ./Modules/Src/MotorAgent.o \
-./Modules/Src/ScreenAgent.o 
+./Modules/Src/ScreenAgent.o \
+./Modules/Src/ci_func.o \
+./Modules/Src/cmd_interp.o 
 
 C_DEPS += \
 ./Modules/Src/LidarAgent.d \
 ./Modules/Src/LogAgent.d \
 ./Modules/Src/MotorAgent.d \
-./Modules/Src/ScreenAgent.d 
+./Modules/Src/ScreenAgent.d \
+./Modules/Src/ci_func.d \
+./Modules/Src/cmd_interp.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes

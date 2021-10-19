@@ -182,7 +182,7 @@ void initAHRS(tAHRSDATA *imuAHRS)
 
 void runAHRSCycle(void)
 {
-	if (HAL_GetTick() - lastChasisIMUMeasurement > 50)
+	if (HAL_GetTick() - lastChasisIMUMeasurement >= 50)
 	{
 		int16_t AccData[3], GyroData[3], MagData[3];
 		MPU9250_GetData(chasisIMU, AccData, MagData, GyroData);

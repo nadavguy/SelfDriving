@@ -37,12 +37,12 @@ static inline void nRF24_CSN_H()
 static inline uint8_t nRF24_LL_RW(uint8_t data)
 {
     // Wait until TX buffer is empty
-    uint8_t result;
-    if(HAL_SPI_TransmitReceive(&NRF_SPI_HANDLE,&data,&result,1,2000)!=HAL_OK)
-//    if(HAL_SPI_TransmitReceive_DMA(&NRF_SPI_HANDLE,&data,&result,1)!=HAL_OK)
-    {
-        Error_Handler();
-    };
+    uint8_t result = 0;
+//    if(HAL_SPI_TransmitReceive(&NRF_SPI_HANDLE,&data,&result,1,2000)!=HAL_OK)
+////    if(HAL_SPI_TransmitReceive_DMA(&NRF_SPI_HANDLE,&data,&result,1)!=HAL_OK)
+//    {
+//        Error_Handler();
+//    };
     return result;
 }
 

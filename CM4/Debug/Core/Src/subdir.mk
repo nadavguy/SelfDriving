@@ -6,7 +6,6 @@
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
 ../Core/Src/dma.c \
-../Core/Src/eth.c \
 ../Core/Src/gpio.c \
 ../Core/Src/i2c.c \
 ../Core/Src/main.c \
@@ -19,7 +18,6 @@ C_SRCS += \
 
 C_DEPS += \
 ./Core/Src/dma.d \
-./Core/Src/eth.d \
 ./Core/Src/gpio.d \
 ./Core/Src/i2c.d \
 ./Core/Src/main.d \
@@ -32,7 +30,6 @@ C_DEPS += \
 
 OBJS += \
 ./Core/Src/dma.o \
-./Core/Src/eth.o \
 ./Core/Src/gpio.o \
 ./Core/Src/i2c.o \
 ./Core/Src/main.o \
