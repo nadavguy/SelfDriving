@@ -6,6 +6,8 @@
 
 #include "main.h"
 #include "ci_func.h"
+#include "str_util.h"
+#include <ctype.h>
 
 cCMD_INTERP g_ci;
 
@@ -208,10 +210,10 @@ uint32_t parse(char* s)
     }
   }
   uint8_t ret = funcTable(CommandsArray);
-  if (!ee_validate1())
-  {
-
-  }
+//  if (!ee_validate1())
+//  {
+//
+//  }
 
   return ret;
 }

@@ -8,6 +8,9 @@
 #ifndef INC_MOTORAGENT_H_
 #define INC_MOTORAGENT_H_
 
+#include "main.h"
+#include "tim.h"
+
 #define MOTORTIM htim3
 #define RBMOTOR TIM_CHANNEL_1
 #define LBMOTOR TIM_CHANNEL_2

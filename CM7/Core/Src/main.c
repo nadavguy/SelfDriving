@@ -74,7 +74,7 @@ struct rpmsg_endpoint rp_endpoint;
 
 
 float versionID = 1.000;
-float buildID = 1.060;
+float buildID = 1.070;
 
 /* USER CODE END PV */
 

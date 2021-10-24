@@ -21,10 +21,10 @@ void initMotors(void)
 	HAL_GPIO_WritePin(GPIOA, GPIO_PIN_10, RESET);
 	HAL_GPIO_WritePin(GPIOF, GPIO_PIN_15, RESET);
 
-	MOTORTIM->Instance->CCR1 = 0;
-	MOTORTIM->Instance->CCR2 = 0;
-	MOTORTIM->Instance->CCR3 = 0;
-	MOTORTIM->Instance->CCR4 = 0;
+	MOTORTIM.Instance->CCR1 = 0;
+	MOTORTIM.Instance->CCR2 = 0;
+	MOTORTIM.Instance->CCR3 = 0;
+	MOTORTIM.Instance->CCR4 = 0;
 
 	HAL_TIM_PWM_Start_IT(&MOTORTIM, RBMOTOR);
 	HAL_TIM_PWM_Start_IT(&MOTORTIM, LBMOTOR);
@@ -34,10 +34,10 @@ void initMotors(void)
 
 void setMotorsSpeed(uint16_t speed)
 {
-	MOTORTIM->Instance->CCR1 = speed * 10;
-	MOTORTIM->Instance->CCR2 = speed * 10;
-	MOTORTIM->Instance->CCR3 = speed * 10;
-	MOTORTIM->Instance->CCR4 = speed * 10;
+	MOTORTIM.Instance->CCR1 = speed * 10;
+	MOTORTIM.Instance->CCR2 = speed * 10;
+	MOTORTIM.Instance->CCR3 = speed * 10;
+	MOTORTIM.Instance->CCR4 = speed * 10;
 }
 
 void updateMotors(void)
